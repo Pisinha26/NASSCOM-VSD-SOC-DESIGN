@@ -61,3 +61,8 @@ In summary, while both foundry IPs and macros are essential for semiconductor de
 ![complete chip](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/102dbe26-7ad6-4753-a5cb-5a5daf465f42)
 
 So if we want to manufacture this entire chip, we need to communicate with Foundry with the help of interface files which the Foundry passes to us.
+
+
+### SoC Design & OpenLANE
+
+
