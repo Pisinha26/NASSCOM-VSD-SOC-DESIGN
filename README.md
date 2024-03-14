@@ -1,5 +1,11 @@
 # NASSCOM-VSD-SOC-DESIGN
 
+# Advanced-Physical-Design-Using-OpenLANE-Sky130
+
+## Day_1 Inception of Open-Source EDA, OpenLANE & Sky130PDK
+
+### How to talk to Computers
+
 The Arduino Leonardo is a microcontroller board based on the ATmega32u4. It has 20 digital input/output pins (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with a AC-to-DC adapter or battery to get started.
 The Leonardo differs from all preceding boards in that the ATmega32u4 has built-in USB communication, eliminating the need for a secondary processor. This allows the Leonardo to appear to a connected computer as a mouse and keyboard, in addition to a virtual (CDC) serial / COM port.
 
