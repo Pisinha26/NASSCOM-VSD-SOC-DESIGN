@@ -13,3 +13,9 @@ The Leonardo differs from all preceding boards in that the ATmega32u4 has built-
 The below block diagram describes this Arduino Board.
 the circled section is the processor/SOC and along with it we have all the interfaces-- JTAG-UART, QSPI1-Flash, I2C0EEPROM, VCC/GND, ADC(QSPI3), SDRAM(external chip)
 ![block diagram of arduino](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/f41e7b48-4593-4fd2-a179-a3376aa07dbb)
+
+When we open up this particular IC, the whole thing is called a package which is shown below.
+the pin locations of this particular package are all driven by the Arduino board that we are trying to design. The size of this package is 7mm x 7mm.
+chip basically sits at the center of the package and the connection of the chip with the package is shown as wire bonds and this way we will be able to transfer all these signals coming from outside world to the interior of the chip.
+
+![chip connect to package](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0e33ba91-14c5-4101-a6b8-c7d07d6005a5)
