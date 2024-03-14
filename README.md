@@ -70,6 +70,18 @@ C-Program is first being compiled in its assembly language program which is the 
 Another interface that needs to be present between RISC-V architecture and the layout is the hardware description language (HDL). So we need to implement this RISC-V specifications using some RTL and then finally RTL to GDS flow.
 So from user point of view, we just execute this particular C-Program and that should get automatically executed by the chip of the hardware and we get the required output.
 
+![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/75aba07b-29cb-4089-89e0-2b59a71198df)
+
+![flowchart app run laptop](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c177530d-4e25-4acc-8763-b4d1578ffda3)
+
+This application software enters into the block called system software and here the system software converts the application software into binary language..
+The major components of  the system software are operating system (O.S),  compiler and the assembler.
+The Operating system handles memories, i/o operation, allocates memory..
+The output of the operating system are the small functions in the c/c++/Java language and these are being taken by the respective compiler and converted into instructions. (.exe files)..
+The syntax of these particular instructions depends upon what kind of the hardware (chip layout) available..for eg--intelx86, Arm, MIPS, RISC-V..
+Now the job of the assembler is to take these instructions and convert it into respective binary numbers which the machine understands..these binary numbers are then fed to the hardware and according to the logic the hardware generates the output.
+
+![Screenshot 2024-03-14 195929](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/34874985-7e51-4006-999d-082265ae0aeb)
 
 ### SoC Design & OpenLANE
 
