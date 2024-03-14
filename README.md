@@ -107,4 +107,21 @@ PDK has only the data information for successful ASIC implementationusing either
 
 ![Screenshot 2024-03-14 233128](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/25ed5fae-ba2a-425b-aaf7-c85f04f4f84e)
 
+![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/8f493685-5a26-4674-8b47-9d9c32d2d9d8)
+
+![Screenshot 2024-03-14 233712](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/824503ed-8d41-4175-bbbd-56c0190e2ce1)
+
+![Screenshot 2024-03-14 234035](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/fcc6e2a9-1449-4202-8223-1348f8f151a0)
+
+![Screenshot 2024-03-14 235313](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/74058a99-0165-462f-91f8-b5876b5edaaa)
+
+![Screenshot 2024-03-14 235011](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/9db02423-74c6-4252-a9fb-96495038edb4)
+
+![Screenshot 2024-03-15 000002](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/d3c210f9-d04b-4a8a-9ea4-9b184b0a0119)
+
+![Screenshot 2024-03-15 000513](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/8ac9616c-680c-4357-9020-904882456bd7)
+
+![Screenshot 2024-03-15 001100](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/930eea0a-1eb6-4217-a7e8-5e4755386519)
+
+![Screenshot 2024-03-15 001354](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c041a9a3-eeff-4c9f-a75d-23a3b44c7eca)
 
