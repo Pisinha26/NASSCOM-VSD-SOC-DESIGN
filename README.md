@@ -62,6 +62,14 @@ In summary, while both foundry IPs and macros are essential for semiconductor de
 
 So if we want to manufacture this entire chip, we need to communicate with Foundry with the help of interface files which the Foundry passes to us.
 
+![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/95d24a92-c010-4892-9601-930bd42be84f)
+
+![RISCV rtl to gds](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/cf43df44-08ad-42a8-b7c7-171d92000dfc)
+
+C-Program is first being compiled in its assembly language program which is the RISC-V assembly language program..then this assembly language program is converted into machine language program which is nothing but binary language program (1's and 0's) which is understood by the hardware of the computer i.e, these bits gets executed in this particular layout and we get the required output.
+Another interface that needs to be present between RISC-V architecture and the layout is the hardware description language (HDL). So we need to implement this RISC-V specifications using some RTL and then finally RTL to GDS flow.
+So from user point of view, we just execute this particular C-Program and that should get automatically executed by the chip of the hardware and we get the required output.
+
 
 ### SoC Design & OpenLANE
 
