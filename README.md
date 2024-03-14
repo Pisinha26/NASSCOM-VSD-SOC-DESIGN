@@ -150,15 +150,28 @@ The objective of OpenLANE is to produce a clean GDSII with no human intervention
 
 ![Screenshot 2024-03-15 033218](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2949751f-9566-422b-90d0-a0ccac9db5b1)
 
+
 ![Screenshot 2024-03-15 033240](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/302620f4-ad86-47ae-a83e-ec22811fc07e)
+
 
 ![Screenshot 2024-03-15 033301](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7e5ca505-70dc-407d-a5fb-0f83d19a7808)
 
+
 ![Screenshot 2024-03-15 033323](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/12ac4c54-7cdb-4188-a437-f8d420a8588a)
+
 
 ![Screenshot 2024-03-15 033344](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/92c0a9fe-58db-4581-a175-911c48e35c90)
 
+
 ![Screenshot 2024-03-15 033410](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/bf7c3821-57e3-4512-8c39-d49d02cd1352)
+
 
 ![Screenshot 2024-03-15 033429](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/542c37e6-c60a-4715-83ec-03e5de83df9d)
 
+
+![Screenshot 2024-03-15 034057](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7a73ac6d-319e-454e-97e5-30daef9a3f6d)
+
+![Screenshot 2024-03-15 034246](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/8d684442-d2b2-45a8-b7fc-93774f9ee99e)
+
+
+![Screenshot 2024-03-15 034414](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ceef16aa-6f70-4925-bc9f-cf18226e4659)
