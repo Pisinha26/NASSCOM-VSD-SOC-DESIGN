@@ -1,1 +1,3 @@
 # NASSCOM-VSD-SOC-DESIGN
+
+![Screenshot 2024-03-14 045651](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/85334b27-b7d0-471b-80c5-ef8991b694a1)
