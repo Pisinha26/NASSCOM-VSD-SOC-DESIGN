@@ -90,7 +90,7 @@ Now the job of the assembler is to take these instructions and convert them into
 
 ![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7af4ef46-c41d-4ef3-9ab2-4d10c923bfb1)
 
-1. RTL IP's- RTL IP refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in an electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), Verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
+1. RTL IPs- RTL IP refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in an electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), Verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
 
 2. EDA Tools- Electronic Design Automation (EDA) tools are software tools used to design electronic systems such as integrated circuits and printed circuit boards. They have three key functions: simulation, design, and verification. EDA tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. They allow teams to predict circuit behavior, assemble circuit elements, and anticipate chip performance. EDA tools are used to verify that a design will meet all the requirements of the manufacturing process, known as design for manufacturability (DFM). Deficiencies in this area can cause the resultant chip to either not function or function at reduced capacity, and there are reliability risks.
 
@@ -100,8 +100,8 @@ PDK data consists of primarily-->
 -Device models
 -Digital Std. cell library
 -I/O library
-On June 30,2020 Google released a first ever open source PDK (FOSS 130 nm Production PDK)to the masses.
-PDK has only the data information for successful ASIC implementation using either open source or close source EDA tools.
+On June 30, 2020, Google released the first ever open-source PDK (FOSS 130 nm Production PDK)to the masses.
+PDK has only the data information for successful ASIC implementation using either open-source or close-source EDA tools.
 
 ![Screenshot 2024-03-14 232618](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/27cedcbe-cec2-4797-9718-0b7d7c10a6bb)
 
@@ -144,7 +144,7 @@ The objective of OpenLANE is to produce a clean GDSII with no human intervention
 </br>Two modes of operation
 </br>--Autonomous & Interactive.
 </br>Design space exploration
-</br>--Find the best set of flow configuration.
+</br>--Find the best set of flow configurations.
 </br>Large number of design examples.
 </br>--43 Designs with their best configuration and more details to be added.
 
@@ -175,3 +175,7 @@ The objective of OpenLANE is to produce a clean GDSII with no human intervention
 
 
 ![Screenshot 2024-03-15 034414](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ceef16aa-6f70-4925-bc9f-cf18226e4659)
+
+
+### Get familiar to open-source EDA Tools
+
