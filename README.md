@@ -30,6 +30,7 @@ The main CPU will probably be bought as IP from ARM.
 The graphics processor (GPU) will be bought from one of a number of companies (e.g. ARM, Imagination Technologies, etc.)
 
 Foundry IPs, or intellectual properties, encompass a range of assets that a semiconductor foundry owns or licenses to produce integrated circuits (ICs) for its clients. These IPs can be classified into several categories:
+
 a) Process Technology IP: This includes the set of technologies and processes used in the fabrication of semiconductor devices. It encompasses everything from the design of the silicon wafers to the various steps involved in creating the circuitry on the chips.
 
 b) Design IP: These are the designs of specific components or functional blocks used in ICs, such as CPUs, GPUs, memory modules, or communication interfaces. Design IPs are often licensed from third-party vendors or developed in-house by the foundry.
