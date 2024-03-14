@@ -83,6 +83,28 @@ Now the job of the assembler is to take these instructions and convert it into r
 
 ![Screenshot 2024-03-14 195929](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/34874985-7e51-4006-999d-082265ae0aeb)
 
+
 ### SoC Design & OpenLANE
+
+![asic and](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/59658143-9d71-4af3-9b54-0e6ebe58488a)
+
+![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7af4ef46-c41d-4ef3-9ab2-4d10c923bfb1)
+
+1. RTL IP's- RTL IP refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
+
+2. EDA Tools- Electronic Design Automation (EDA) tools are software tools used to design electronic systems such as integrated circuits and printed circuit boards. They have three key functions: simulation, design, and verification. EDA tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. They allow teams to predict circuit behavior, assemble circuit elements, and anticipate chip performance. EDA tools are used to verify that a design will meet all the requirements of the manufacturing process, known as design for manufacturability (DFM). Deficiencies in this area can cause the resultant chip to either not function or function at reduced capacity, and there are reliability risks.
+
+3. PDK- It stands for Process Design Kit. It is basically a interface between FAB and the designers which is a collection of files used to model a fabrication process for the EDA tools used to design an IC.
+PDK data consists of primarily-->
+-Process design rules i.e DRC
+-Device models
+-Digital Std. cell library
+-I/O library
+On june 30,2020 Google released a first ever open source PDK (FOSS 130 nm Production PDK)to the masses.
+PDK has only the data information for successful ASIC implementationusing either open source or close source EDA tools.
+
+![Screenshot 2024-03-14 232618](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/27cedcbe-cec2-4797-9718-0b7d7c10a6bb)
+
+![Screenshot 2024-03-14 233128](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/25ed5fae-ba2a-425b-aaf7-c85f04f4f84e)
 
 
