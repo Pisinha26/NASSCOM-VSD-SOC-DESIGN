@@ -140,19 +140,19 @@ PDK has only the data information for successful ASIC implementation using eithe
 <b>The objective of OpenLANE is to produce a clean GDSII with no human intervention, i.e. No LVS violations, No DRC violations, and no Timing violations.</b>
 </br>It is tuned for SkyWater 130nm Open PDK and also supports XFAB180 and GF130G.
 
-It is containerized
+<b>It is containerized</b>.
 </br>--Functional out of the box.
 </br>--Instructions to build and run natively will follow.
 
-Can be used to harden Macros and chips.
+<b>Can be used to harden Macros and chips.</b>
 
-</br>Two modes of operation.
+</br><b>Two modes of operation</b>.
 </br>--Autonomous & Interactive.
 
-</br>Design space exploration.
+</br><b>Design space exploration</b>.
 </br>--Find the best set of flow configurations.
 
-</br>Large number of design examples.
+</br><b>Large number of design examples</b>.
 </br>--43 Designs with their best configuration and more details to be added.
 
 ![Screenshot 2024-03-15 033218](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2949751f-9566-422b-90d0-a0ccac9db5b1)
