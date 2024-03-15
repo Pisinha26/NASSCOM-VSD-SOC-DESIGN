@@ -135,16 +135,21 @@ OpenLane is an automated RTL to GDSII flow based on several components including
 
 ![Screenshot 2024-03-15 031552](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ecef32fe-1d9a-4f3b-a9bf-973448451508)
 
-The objective of OpenLANE is to produce a clean GDSII with no human intervention, i.e. No LVS violations, No DRC violations, and no Timing violations.
+<b>The objective of OpenLANE is to produce a clean GDSII with no human intervention, i.e. No LVS violations, No DRC violations, and no Timing violations.</b>
 </br>It is tuned for SkyWater 130nm Open PDK and also supports XFAB180 and GF130G.
+
 </br>It is containerized
 </br>--Functional out of the box.
 </br>--Instructions to build and run natively will follow.
+
 </br>Can be used to harden Macros and chips
+
 </br>Two modes of operation
 </br>--Autonomous & Interactive.
+
 </br>Design space exploration
 </br>--Find the best set of flow configurations.
+
 </br>Large number of design examples.
 </br>--43 Designs with their best configuration and more details to be added.
 
@@ -178,4 +183,25 @@ The objective of OpenLANE is to produce a clean GDSII with no human intervention
 
 
 ### Get familiar to open-source EDA Tools
+
+<b>go to Terminal</b>
+
+</br><b>vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working-dir/openlane/$</b>
+
+</br> To invoke the openlane we have to use the two commands that are <b>"docker"</b> and <b>"flow.tcl -interactive"</b>.
+</br>interactive means all the process is done step by step.
+</br> Now the openlane has been invoked.
+</br> The next command should be <b>"package require openlane 0.9"</b>. this command basically imports all the packages which is required for the flow.
+</br>So these 3 steps have to be done every time.
+</br> The next command is <b>"prep -design picorv32a"</b> and after that it will show <b>"Preparation complete"</b>.
+</br> Here we actually prepare the design setup stage. we need to set up the file system specific to the flow. i.e. each & every step of the flow will be fetching files from a particular location. so that location needs to be created. <b>"mergeLef.py"</b> means it has merged both the .lef and .tlef files into one mergeLef.py file.
+</br> After the <b>"Preparation complete"</b> state, we will first check if any directory is created in the picorv32 directory or not!!..we will see that a <b>"runs"</b> directory is created in picorv32 directory. and inside the <b>"runs"</b> directory a folder with today's date will be created. inside this directory, all the folder structures that is required by openlane will be present.
+</br>after checking <b>"runs"</b> directory, now we will give command as <b>"run_synthesis"</b>.
+</br>after the synthesis is over, we will check how the result has been displayed in the <b>"runs"</b> directory.
+
+![Screenshot 2024-03-15 081613](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2049f796-fcfb-4ead-b793-33f756e1a75c)
+
+<b>This is the synthesis result. we calculated the flop ratio.</b>
+
+![Screenshot 2024-03-15 095813](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/a812755b-55c0-4d0b-8506-f4eebb1780ad)
 
