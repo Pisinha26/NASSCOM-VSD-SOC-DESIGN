@@ -6,7 +6,7 @@
 
 ### How to talk to Computers
 
-The Arduino Leonardo is a microcontroller board based on the ATmega32u4. It has 20 digital input/output pins (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with an AC-to-DC adapter or battery to get started.
+The <b>Arduino Leonardo</b> is a microcontroller board based on the <b>ATmega32u4</b>. It has <b>20 digital input/output pins</b> (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with an AC-to-DC adapter or battery to get started.
 The Leonardo differs from all preceding boards in that the ATmega32u4 has built-in USB communication, eliminating the need for a secondary processor. This allows the Leonardo to appear on a connected computer as a mouse and keyboard, in addition to a virtual (CDC) serial / COM port.
 
 
@@ -27,36 +27,38 @@ chip basically sits at the center of the package and the connection of the chip 
 ![chip connect to package](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0e33ba91-14c5-4101-a6b8-c7d07d6005a5)
 
 The chip will have various components--
-1. PADS- A pad is the exposed region of the metal on a circuit board that the component lead is soldered to. Pads are the points through which the connection of peripherals on a board is made with the chip/processor, and the transfer of data takes place. Any signal can go outside or inside the chip through pads.
-2. CORE-  A core in a chip is a well-partitioned piece of logic capable of independently performing all functions of a processor. All the digital logic building blocks are present here.
-3. DIE- this is what gets manufactured on the silicon wafer.
+1. <b>PADS</b> - A pad is the exposed region of the metal on a circuit board that the component lead is soldered to. Pads are the points through which the connection of peripherals on a board is made with the chip/processor, and the transfer of data takes place. Any signal can go outside or inside the chip through pads.
+
+2. <b>CORE</b> - A core in a chip is a well-partitioned piece of logic capable of independently performing all functions of a processor. All the digital logic building blocks are present here.
+
+3. <b>DIE</b>- this is what gets manufactured on the silicon wafer.
   
-4. FOUNDRY IP'S-  A foundry is a company that provides IC (integrated circuit) manufacturing services - basically, you give them your design, and they manufacture the chip for you. Intellectual Property. In this context, it’s the design of the parts of a chip. Nowadays, many chips are not wholly designed by the company that’s “designing” them. For example, in a typical mobile phone application chip:
-The main CPU will probably be bought as IP from ARM.
-The graphics processor (GPU) will be bought from one of a number of companies (e.g. ARM, Imagination Technologies, etc.)
+4. <b>FOUNDRY IP'S</b> - A foundry is a company that provides IC (integrated circuit) manufacturing services - basically, you give them your design, and they manufacture the chip for you. Intellectual Property. In this context, it’s the design of the parts of a chip. Nowadays, many chips are not wholly designed by the company that’s “designing” them. For example, in a typical mobile phone application chip:
+The main <b>CPU</b> will probably be bought as IP from ARM.
+The <b>graphics processor (GPU) </b>will be bought from one of a number of companies (e.g. ARM, Imagination Technologies, etc.)
 
-Foundry IPs, or intellectual properties, encompass a range of assets that a semiconductor foundry owns or licenses to produce integrated circuits (ICs) for its clients. These IPs can be classified into several categories:
+<b>Foundry IPs, or intellectual properties,</b> encompass a range of assets that a semiconductor foundry owns or licenses to produce integrated circuits (ICs) for its clients. <b>These IPs can be classified into several categories :</b>
 
-a) Process Technology IP: This includes the set of technologies and processes used in the fabrication of semiconductor devices. It encompasses everything from the design of the silicon wafers to the various steps involved in creating the circuitry on the chips.
+a) <b>Process Technology IP</b>: This includes the set of technologies and processes used in the fabrication of semiconductor devices. It encompasses everything from the design of the silicon wafers to the various steps involved in creating the circuitry on the chips.
 
-b) Design IP: These are the designs of specific components or functional blocks used in ICs, such as CPUs, GPUs, memory modules, or communication interfaces. Design IPs are often licensed from third-party vendors or developed in-house by the foundry.
+b) <b>Design IP</b>: These are the designs of specific components or functional blocks used in ICs, such as CPUs, GPUs, memory modules, or communication interfaces. Design IPs are often licensed from third-party vendors or developed in-house by the foundry.
 
-c) Verification IP: This type of IP includes the models, testbenches, and other verification components used to ensure that the designed IC functions correctly before manufacturing. It helps validate the functionality and performance of the chip design.
+c) <b>Verification IP</b>: This type of IP includes the models, testbenches, and other verification components used to ensure that the designed IC functions correctly before manufacturing. It helps validate the functionality and performance of the chip design.
 
-d) Packaging IP: Packaging IPs involve the technologies and designs related to the physical packaging of the ICs, including the substrate, interconnects, and external connections. Proper packaging is crucial for protecting the chips and enabling their integration into electronic devices.
+d) <b>Packaging IP</b>: Packaging IPs involve the technologies and designs related to the physical packaging of the ICs, including the substrate, interconnects, and external connections. Proper packaging is crucial for protecting the chips and enabling their integration into electronic devices.
 
-e) Security IP: With the growing concerns over cybersecurity, security IPs have become increasingly important. These IPs include features such as encryption/decryption, authentication, and secure boot mechanisms to protect the data and functionality of the ICs from unauthorized access or tampering.
+e)<b> Security IP</b>: With the growing concerns over cybersecurity, security IPs have become increasingly important. These IPs include features such as encryption/decryption, authentication, and secure boot mechanisms to protect the data and functionality of the ICs from unauthorized access or tampering.
 
 Overall, foundry IPs are essential for semiconductor foundries to differentiate themselves in the highly competitive semiconductor manufacturing industry. They enable foundries to offer unique technologies, services, and solutions to their clients, ultimately driving innovation and progress in the electronics industry.
 
-5. MACROS-  Macro is an essential component in the VLSI design cycle before the final packaged chip is ready to use. Macro cells are the memory cells, intellectual property that an analog design team has designed. To break down the understanding of macro cells, consider macro cells as pieces of logic blocks, mainly intellectual properties (IP), which can be used in a design without the need to (of) building them from scratch. Thus, these memory cells are instrumental in reducing the total time for the design engineers that are required to complete their entire design.
+5. <b>MACROS</b>-  Macro is an essential component in the VLSI design cycle before the final packaged chip is ready to use. Macro cells are the memory cells, intellectual property that an analog design team has designed. To break down the understanding of macro cells, consider macro cells as pieces of logic blocks, mainly intellectual properties (IP), which can be used in a design without the need to (of) building them from scratch. Thus, these memory cells are instrumental in reducing the total time for the design engineers that are required to complete their entire design.
 
 ![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/fe9ac562-fa98-48b8-a4b1-ac26f78898f4)
 
 
 ![difference](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ea4cb08d-d182-45a0-a6be-262446f9d494)
 
-In summary, while both foundry IPs and macros are essential for semiconductor design and manufacturing, foundry IPs encompass a broader range of intellectual properties provided by semiconductor foundries, while macros specifically refer to pre-designed functional blocks used in chip design, often provided by third-party vendors or developed in-house.
+In summary, while both <b>foundry IPs</b> and <b>Macros</b> are essential for semiconductor design and manufacturing, foundry IPs encompass a broader range of intellectual properties provided by semiconductor foundries, while macros specifically refer to pre-designed functional blocks used in chip design, often provided by third-party vendors or developed in-house.
 
 ![complete chip](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/102dbe26-7ad6-4753-a5cb-5a5daf465f42)
 
@@ -66,8 +68,8 @@ So if we want to manufacture this entire chip, we need to communicate with the F
 
 ![RISCV rtl to gds](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/cf43df44-08ad-42a8-b7c7-171d92000dfc)
 
-C-Program is first being compiled in its assembly language program which is the RISC-V assembly language program..then this assembly language program is converted into a machine language program which is nothing but a binary language program (1's and 0's) that is understood by the hardware of the computer i.e, these bits get executed in this particular layout and we get the required output.
-Another interface that needs to be present between RISC-V architecture and the layout is the hardware description language (HDL). So we need to implement these RISC-V specifications using some RTL and then finally RTL to GDS flow.
+<b>C-Program</b> is first being compiled in its assembly language program which is the <b>RISC-V assembly language program</b>..then this assembly language program is converted into a machine language program which is nothing but a <b>binary language program (1's and 0's)</b> that is understood by the hardware of the computer i.e, these bits get executed in this particular layout and we get the required output.
+Another interface that needs to be present between RISC-V architecture and the layout is the <b>hardware description language (HDL)</b>. So we need to implement these RISC-V specifications using some RTL and then finally RTL to GDS flow.
 So from the user's point of view, we just execute this particular C-Program and that should get automatically executed by the chip of the hardware and we get the required output.
 
 ![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/75aba07b-29cb-4089-89e0-2b59a71198df)
@@ -90,17 +92,17 @@ Now the job of the assembler is to take these instructions and convert them into
 
 ![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7af4ef46-c41d-4ef3-9ab2-4d10c923bfb1)
 
-1. RTL IPs- RTL IP refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in an electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), Verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
+1. <b>RTL IPs</b>- RTL IP refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in an electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), Verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
 
-2. EDA Tools- Electronic Design Automation (EDA) tools are software tools used to design electronic systems such as integrated circuits and printed circuit boards. They have three key functions: simulation, design, and verification. EDA tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. They allow teams to predict circuit behavior, assemble circuit elements, and anticipate chip performance. EDA tools are used to verify that a design will meet all the requirements of the manufacturing process, known as design for manufacturability (DFM). Deficiencies in this area can cause the resultant chip to either not function or function at reduced capacity, and there are reliability risks.
+2. <b>EDA Tools</b>- Electronic Design Automation (EDA) tools are software tools used to design electronic systems such as integrated circuits and printed circuit boards. They have three key functions: simulation, design, and verification. EDA tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. They allow teams to predict circuit behavior, assemble circuit elements, and anticipate chip performance. EDA tools are used to verify that a design will meet all the requirements of the manufacturing process, known as design for manufacturability (DFM). Deficiencies in this area can cause the resultant chip to either not function or function at reduced capacity, and there are reliability risks.
 
-3. PDK- It stands for Process Design Kit. It is basically an interface between FAB and the designers which is a collection of files used to model a fabrication process for the EDA tools used to design an IC.
+3. <b>PDK</b>- It stands for <b>Process Design Kit</b>. It is basically an interface between FAB and the designers which is a collection of files used to model a fabrication process for the EDA tools used to design an IC.
 PDK data consists of primarily-->
 -Process design rules i.e DRC
 -Device models
 -Digital Std. cell library
 -I/O library
-On June 30, 2020, Google released the first ever open-source PDK (FOSS 130 nm Production PDK)to the masses.
+On June 30, 2020, Google released the first ever open-source PDK <b>(FOSS 130 nm Production PDK)</b>to the masses.
 PDK has only the data information for successful ASIC implementation using either open-source or close-source EDA tools.
 
 ![Screenshot 2024-03-14 232618](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/27cedcbe-cec2-4797-9718-0b7d7c10a6bb)
@@ -127,7 +129,7 @@ PDK has only the data information for successful ASIC implementation using eithe
 
 ## Introduction to OpenLANE
 
-OpenLane is an automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, KLayout, and a number of custom scripts for design exploration and optimization. The flow performs all ASIC implementation steps from RTL all the way down to GDSII.
+<b>OpenLane</b> is an automated <b>RTL to GDSII flow</b> based on several components including <b>OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, KLayout</b>, and a number of custom scripts for design exploration and optimization. The flow performs all ASIC implementation steps from RTL all the way down to GDSII.
 
 ![Screenshot 2024-03-15 030342](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7dff59ee-8ee2-48c3-acbc-a93826d91b60)
 
@@ -138,16 +140,16 @@ OpenLane is an automated RTL to GDSII flow based on several components including
 <b>The objective of OpenLANE is to produce a clean GDSII with no human intervention, i.e. No LVS violations, No DRC violations, and no Timing violations.</b>
 </br>It is tuned for SkyWater 130nm Open PDK and also supports XFAB180 and GF130G.
 
-</br>It is containerized
+It is containerized
 </br>--Functional out of the box.
 </br>--Instructions to build and run natively will follow.
 
-</br>Can be used to harden Macros and chips
+Can be used to harden Macros and chips.
 
-</br>Two modes of operation
+</br>Two modes of operation.
 </br>--Autonomous & Interactive.
 
-</br>Design space exploration
+</br>Design space exploration.
 </br>--Find the best set of flow configurations.
 
 </br>Large number of design examples.
@@ -184,8 +186,7 @@ OpenLane is an automated RTL to GDSII flow based on several components including
 
 ### Get familiar to open-source EDA Tools
 
-<b>go to Terminal</b>
-
+<b>go to Terminal--</b>
 </br><b>vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working-dir/openlane/$</b>
 
 </br> To invoke the openlane we have to use the two commands that are <b>"docker"</b> and <b>"flow.tcl -interactive"</b>.
