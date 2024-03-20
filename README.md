@@ -206,3 +206,60 @@ PDK has only the data information for successful ASIC implementation using eithe
 
 ![Screenshot 2024-03-15 095813](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/a812755b-55c0-4d0b-8506-f4eebb1780ad)
 
+
+## Day-2 Good floorplan vs Bad floorplan and introduction to library cells
+### Chip floor planning considerations
+  ###   Utilization factor and aspect ratio
+  ![photo_2024-03-19_21-32-08](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2362f638-49d5-4dce-8d95-6bbee1d2eac5)
+
+  The below diagram is just a basic netlist that consists of two flipflops( launch flop and capture flop) and some combinational logic in between them. The dimensions of the chip will mostly depend on the dimensions of the logic gates/ standard cells not the wires. Wires will play important role in further stages.
+
+  ![Screenshot 2024-03-20 000318](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2facc477-3d64-4201-b3c9-41ae5996f3a8)
+
+  We are placing everything in one plate and roughly calculating the area for this netlist. The minimum area occupied by the netlist wherever it is placed is 
+  4 sq.unit.
+
+  ![Screenshot 2024-03-20 001809](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/6e0da4d8-cf20-48ec-944c-d68a181586a6)
+
+  Now the circuit above should be built inside this piece of area and should not exceed this area.
+  <br>The below diagram shows the Core & Die section of a chip.
+
+  ![photo_2024-03-20_00-31-09](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/6a850be8-b3e7-43c2-997a-65a4e9404073)
+  
+  <b>Utilization factor</b>
+  <br>If the above logic circuit completely fits in the core area, and there is no space left to place the other cells, then the utilization factor is 100%.
+  <br>if U.F = 0.8 that means 80% is used for placing the cells and 20% is used for routing.
+
+  ![photo_2024-03-20_00-36-44](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e51befee-57fb-461c-ad95-7de824967579)
+  Ideally the utilization factor should be 0.5 or 0.6.
+
+  <b>Aspect Ratio</b>
+  <br>It is defined as the ratio of height and width of core.
+  <br>if <b>A.R>1</b>-- height > width
+  <br>if <b>A.R<1</b>-- height < width
+  <br>if <b>A.R=1</b>-- square shape
+
+  ![Screenshot 2024-03-20 005805](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/548ca271-461f-4220-9be8-62be13fdc1ef)
+
+  25% of our chip is occupied with the initial netlist which is completely connected by idle wires which don't have any shape or size. The remaining 75% is available for all placing additional cells and routing.
+
+  
+  ### Pre-Placed cells
+
+  Preplaced cells are manually positioned components in integrated circuit layouts, strategically placed before automated placement and routing. They often include custom-designed or critical functional blocks requiring precise placement for optimized performance, power, or area. Unlike standard cells, preplaced cells provide designers with greater control over layout, facilitating hierarchical design methodologies and aiding in achieving design closure. These cells are commonly used for interface circuits or specialized logic blocks, ensuring they meet strict timing, power, and signal integrity requirements. Preplaced cells enhance flexibility and enable designers to balance competing design objectives effectively in large-scale integrated circuit designs.
+  These pre-placed cells will be implemented once and can be instantiated multiple times. They are part of netlist and receive some inputs and deliver output, but the functionality of these cells is that they are implemented only once. That's why we call it Pre-Placed cells because these cells are being placed only once in a chip.
+
+  ![Screenshot 2024-03-20 030241](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2de21f30-a16b-4d63-bbca-9c4dbcf72d12)
+
+![Screenshot 2024-03-20 033942](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/cb470787-61e0-4557-aec3-3226eb1ca2c4)
+
+These pre-placed cells have been placed in this area depending on the design scenario. So, the locations of these pre-placed cells are never touched while we go in the design cycle. So, the locations has to be very well defined.
+
+
+### De-coupling capacitors  
+
+We have to also surround the pre-placed cells with de-coupling capacitors.
+
+![Screenshot 2024-03-20 063524](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/42096025-ec94-4dba-8696-8c1ceb157695)
+
+![Screenshot 2024-03-20 063817](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/109b99f7-c129-41f7-909b-c1935952dd14)
