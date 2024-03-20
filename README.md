@@ -253,7 +253,7 @@ PDK has only the data information for successful ASIC implementation using eithe
 
 ![Screenshot 2024-03-20 033942](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/cb470787-61e0-4557-aec3-3226eb1ca2c4)
 
-These pre-placed cells have been placed in this area depending on the design scenario. So, the locations of these pre-placed cells are never touched while we go in the design cycle. So, the locations has to be very well defined.
+These pre-placed cells have been placed in this area depending on the design scenario. So, the locations of these pre-placed cells are never touched while we go in the design cycle. So, the locations have to be very well defined.
 
 
 ### De-coupling capacitors  
@@ -263,3 +263,22 @@ We have to also surround the pre-placed cells with de-coupling capacitors.
 ![Screenshot 2024-03-20 063524](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/42096025-ec94-4dba-8696-8c1ceb157695)
 
 ![Screenshot 2024-03-20 063817](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/109b99f7-c129-41f7-909b-c1935952dd14)
+
+![Screenshot 2024-03-20 112507](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ef011ba4-87ce-4d82-8d5c-8627269fa688)
+
+If we are expecting a logic1, so we can't guarantee we will get logic1 due to the long physical distance from the power supply to this piece of circuit. we can solve this problem using a de-coupling capacitor.
+<br>De-coupling capacitor is a huge capacitor that is completely filled with charge. The voltage stored in this capacitor is equivalent to the supply voltage. The de-coupling capacitor actually de-couples this circuit from the main supply. So, whenever the switching activity happens, the amount of current required by the circuit is provided by the de-coupling capacitor. that's why the de-coupling capacitor is placed close to the  circuit. And whenever there is no switching activity, the de-coupling spends its time replenishing its own charge.
+
+
+![Screenshot 2024-03-20 112717](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e36c24b0-2b06-4fdd-a1a4-9f12c277b363)
+
+![Screenshot 2024-03-20 112859](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/1100e86f-0e10-425a-a163-2fb89d10d469)
+
+So now it ensures that these pre-placed cells get their supply from these de-coupling capacitors. Now these blocks will behave as there will be no switching activity that will get missed, also there won't be any crosstalk issues, i.e there will be no problem where the logic1 will not be treated as logic1 because the de-coupling capacitors placed around these blocks will supply the required amount of charge to these blocks.
+With this, we have taken care of the local communication.
+<br>We will take care of Global communication with the help of power planning.
+
+
+### Power Planning
+
+
