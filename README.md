@@ -22,18 +22,18 @@
 
 * When we open up this particular IC, the whole thing is called a package which is shown below.
 * The pin locations of this particular package are all driven by the Arduino board that we are trying to design. The size of this package is `7mm x 7mm`.
-* Chip basically sits at the center of the package and the connection of the chip with the package is shown as wire bonds this way we will be able to transfer all these signals coming from the outside world to the interior of the chip.
+* The chip basically sits at the center of the package and the connection of the chip with the package is shown as wire bonds this way we will be able to transfer all these signals coming from the outside world to the interior of the chip.
 
 ![chip connect to package](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0e33ba91-14c5-4101-a6b8-c7d07d6005a5)
 
 The chip will have various components--
-1. <b>`PADS`</b> - A pad is the exposed region of the metal on a circuit board that the component lead is soldered to. Pads are the points through which the connection of peripherals on a board is made with the chip/processor, and the transfer of data takes place. Any signal can go outside or inside the chip through pads.
+1. `PADS` - A pad is the exposed region of the metal on a circuit board that the component lead is soldered to. Pads are the points through which the connection of peripherals on a board is made with the chip/processor, and the transfer of data takes place. Any signal can go outside or inside the chip through pads.
 
-2. <b>`CORE`</b> - A core in a chip is a well-partitioned piece of logic capable of independently performing all functions of a processor. All the digital logic building blocks are present here.
+2. `CORE` - A core in a chip is a well-partitioned piece of logic capable of independently performing all functions of a processor. All the digital logic building blocks are present here.
 
-3. <b>`DIE`</b> - This is what gets manufactured on the silicon wafer.
+3. `DIE` - This is what gets manufactured on the silicon wafer.
   
-4. <b>`FOUNDRY IP'S`</b> - A foundry is a company that provides IC (integrated circuit) manufacturing services - basically, you give them your design, and they manufacture the chip for you. Intellectual Property. In this context, it’s the design of the parts of a chip. Nowadays, many chips are not wholly designed by the company that’s “designing” them.
+4. `FOUNDRY IP'S` - A foundry is a company that provides IC (integrated circuit) manufacturing services - basically, you give them your design, and they manufacture the chip for you. Intellectual Property. In this context, it’s the design of the parts of a chip. Nowadays, many chips are not wholly designed by the company that’s “designing” them.
 * For example, in a typical mobile phone application chip:
 The main CPU will probably be bought as IP from ARM. The graphics processor (GPU) will be bought from one of a number of companies (e.g. ARM, Imagination Technologies, etc.)
 
@@ -92,11 +92,11 @@ Another interface that needs to be present between RISC-V architecture and the l
 
 ![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7af4ef46-c41d-4ef3-9ab2-4d10c923bfb1)
 
-1. `<b>RTL IPs</b>` - RTL IP refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in an electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), Verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
+1. `RTL IPs` - RTL IP refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in an electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), Verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
 
-2. `<b>EDA Tools</b>` - Electronic Design Automation (EDA) tools are software tools used to design electronic systems such as integrated circuits and printed circuit boards. They have three key functions: simulation, design, and verification. EDA tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. They allow teams to predict circuit behavior, assemble circuit elements, and anticipate chip performance. EDA tools are used to verify that a design will meet all the requirements of the manufacturing process, known as design for manufacturability (DFM). Deficiencies in this area can cause the resultant chip to either not function or function at reduced capacity, and there are reliability risks.
+2. `EDA Tools` - Electronic Design Automation (EDA) tools are software tools used to design electronic systems such as integrated circuits and printed circuit boards. They have three key functions: simulation, design, and verification. EDA tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. They allow teams to predict circuit behavior, assemble circuit elements, and anticipate chip performance. EDA tools are used to verify that a design will meet all the requirements of the manufacturing process, known as design for manufacturability (DFM). Deficiencies in this area can cause the resultant chip to either not function or function at reduced capacity, and there are reliability risks.
 
-3. `<b>PDK</b>` - It stands for <b>Process Design Kit</b>. It is basically an interface between FAB and the designers which is a collection of files used to model a fabrication process for the EDA tools used to design an IC.
+3. `PDK` - It stands for <b>Process Design Kit</b>. It is basically an interface between FAB and the designers which is a collection of files used to model a fabrication process for the EDA tools used to design an IC.
 <br>PDK data consist of primarily-->
 * Process design rules i.e DRC
 * Device models
