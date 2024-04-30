@@ -6,8 +6,8 @@
 
 ### How to talk to Computers
 
-The <b>Arduino Leonardo</b> is a microcontroller board based on the <b>ATmega32u4</b>. It has <b>20 digital input/output pins</b> (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with an AC-to-DC adapter or battery to get started.
-The Leonardo differs from all preceding boards in that the ATmega32u4 has built-in USB communication, eliminating the need for a secondary processor. This allows the Leonardo to appear on a connected computer as a mouse and keyboard, in addition to a virtual (CDC) serial / COM port.
+* The `Arduino Leonardo` is a microcontroller board based on the `ATmega32u4`. It has `20 digital input/output pins` (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller; simply connect it to a computer with a USB cable or power it with an AC-to-DC adapter or battery to get started.
+* The Leonardo differs from all preceding boards in that the ATmega32u4 has built-in USB communication, eliminating the need for a secondary processor. This allows the Leonardo to appear on a connected computer as a mouse and keyboard, in addition to a virtual (CDC) serial / COM port.
 
 
 ![leonardo aurdino](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/362391d9-c07f-477b-866c-8177abbcc20b)
@@ -16,45 +16,45 @@ The Leonardo differs from all preceding boards in that the ATmega32u4 has built-
 [leonardo schematics.pdf](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/files/14595134/leonardo.schematics.pdf)
 
 
-The below block diagram describes this Arduino Board.
-the circled section is the processor/SOC and along with it we have all the interfaces-- JTAG-UART, QSPI1-Flash, I2C0EEPROM, VCC/GND, ADC(QSPI3), SDRAM(external chip)
+<b>The below block diagram describes this Arduino Board.</b>
+<br>The circled section is the processor/SOC and along with it we have all the interfaces-- `JTAG-UART`, `QSPI1-Flash`, `I2C0EEPROM`, `VCC/GND`, `ADC(QSPI3)`, `SDRAM(external chip)`
 ![block diagram of Arduino](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/f41e7b48-4593-4fd2-a179-a3376aa07dbb)
 
-When we open up this particular IC, the whole thing is called a package which is shown below.
-the pin locations of this particular package are all driven by the Arduino board that we are trying to design. The size of this package is 7mm x 7mm.
-chip basically sits at the center of the package and the connection of the chip with the package is shown as wire bonds and this way we will be able to transfer all these signals coming from the outside world to the interior of the chip.
+* When we open up this particular IC, the whole thing is called a package which is shown below.
+* The pin locations of this particular package are all driven by the Arduino board that we are trying to design. The size of this package is `7mm x 7mm`.
+* Chip basically sits at the center of the package and the connection of the chip with the package is shown as wire bonds this way we will be able to transfer all these signals coming from the outside world to the interior of the chip.
 
 ![chip connect to package](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0e33ba91-14c5-4101-a6b8-c7d07d6005a5)
 
 The chip will have various components--
-1. <b>PADS</b> - A pad is the exposed region of the metal on a circuit board that the component lead is soldered to. Pads are the points through which the connection of peripherals on a board is made with the chip/processor, and the transfer of data takes place. Any signal can go outside or inside the chip through pads.
+1. `<b>PADS</b>` - A pad is the exposed region of the metal on a circuit board that the component lead is soldered to. Pads are the points through which the connection of peripherals on a board is made with the chip/processor, and the transfer of data takes place. Any signal can go outside or inside the chip through pads.
 
-2. <b>CORE</b> - A core in a chip is a well-partitioned piece of logic capable of independently performing all functions of a processor. All the digital logic building blocks are present here.
+2. `<b>CORE</b>` - A core in a chip is a well-partitioned piece of logic capable of independently performing all functions of a processor. All the digital logic building blocks are present here.
 
-3. <b>DIE</b>- this is what gets manufactured on the silicon wafer.
+3. `<b>DIE</b>` - This is what gets manufactured on the silicon wafer.
   
-4. <b>FOUNDRY IP'S</b> - A foundry is a company that provides IC (integrated circuit) manufacturing services - basically, you give them your design, and they manufacture the chip for you. Intellectual Property. In this context, it’s the design of the parts of a chip. Nowadays, many chips are not wholly designed by the company that’s “designing” them. For example, in a typical mobile phone application chip:
-The main <b>CPU</b> will probably be bought as IP from ARM.
-The <b>graphics processor (GPU) </b>will be bought from one of a number of companies (e.g. ARM, Imagination Technologies, etc.)
+4. `<b>FOUNDRY IP'S</b>` - A foundry is a company that provides IC (integrated circuit) manufacturing services - basically, you give them your design, and they manufacture the chip for you. Intellectual Property. In this context, it’s the design of the parts of a chip. Nowadays, many chips are not wholly designed by the company that’s “designing” them.
+* For example, in a typical mobile phone application chip:
+The main CPU will probably be bought as IP from ARM. The graphics processor (GPU) will be bought from one of a number of companies (e.g. ARM, Imagination Technologies, etc.)
 
-<b>Foundry IPs, or intellectual properties,</b> encompass a range of assets that a semiconductor foundry owns or licenses to produce integrated circuits (ICs) for its clients. <b>These IPs can be classified into several categories :</b>
+* <b>Foundry IPs, or intellectual properties,</b> encompass a range of assets that a semiconductor foundry owns or licenses to produce integrated circuits (ICs) for its clients.
+<b>These IPs can be classified into several categories:</b>
 
-a) <b>Process Technology IP</b>: This includes the set of technologies and processes used in the fabrication of semiconductor devices. It encompasses everything from the design of the silicon wafers to the various steps involved in creating the circuitry on the chips.
+a) `Process Technology IP`: This includes the set of technologies and processes used in the fabrication of semiconductor devices. It encompasses everything from the design of the silicon wafers to the various steps involved in creating the circuitry on the chips.
 
-b) <b>Design IP</b>: These are the designs of specific components or functional blocks used in ICs, such as CPUs, GPUs, memory modules, or communication interfaces. Design IPs are often licensed from third-party vendors or developed in-house by the foundry.
+b) `Design IP`: These are the designs of specific components or functional blocks used in ICs, such as CPUs, GPUs, memory modules, or communication interfaces. Design IPs are often licensed from third-party vendors or developed in-house by the foundry.
 
-c) <b>Verification IP</b>: This type of IP includes the models, testbenches, and other verification components used to ensure that the designed IC functions correctly before manufacturing. It helps validate the functionality and performance of the chip design.
+c) `Verification IP`: This type of IP includes the models, testbenches, and other verification components used to ensure that the designed IC functions correctly before manufacturing. It helps validate the functionality and performance of the chip design.
 
-d) <b>Packaging IP</b>: Packaging IPs involve the technologies and designs related to the physical packaging of the ICs, including the substrate, interconnects, and external connections. Proper packaging is crucial for protecting the chips and enabling their integration into electronic devices.
+d) `Packaging IP`: Packaging IPs involve the technologies and designs related to the physical packaging of the ICs, including the substrate, interconnects, and external connections. Proper packaging is crucial for protecting the chips and enabling their integration into electronic devices.
 
-e)<b> Security IP</b>: With the growing concerns over cybersecurity, security IPs have become increasingly important. These IPs include features such as encryption/decryption, authentication, and secure boot mechanisms to protect the data and functionality of the ICs from unauthorized access or tampering.
+e) `Security IP`: With the growing concerns over cybersecurity, security IPs have become increasingly important. These IPs include features such as encryption/decryption, authentication, and secure boot mechanisms to protect the data and functionality of the ICs from unauthorized access or tampering.
 
 Overall, foundry IPs are essential for semiconductor foundries to differentiate themselves in the highly competitive semiconductor manufacturing industry. They enable foundries to offer unique technologies, services, and solutions to their clients, ultimately driving innovation and progress in the electronics industry.
 
-5. <b>MACROS</b>-  Macro is an essential component in the VLSI design cycle before the final packaged chip is ready to use. Macro cells are the memory cells, intellectual property that an analog design team has designed. To break down the understanding of macro cells, consider macro cells as pieces of logic blocks, mainly intellectual properties (IP), which can be used in a design without the need to (of) building them from scratch. Thus, these memory cells are instrumental in reducing the total time for the design engineers that are required to complete their entire design.
+5. `<b>MACROS</b> -  Macro is an essential component in the VLSI design cycle before the final packaged chip is ready to use. Macro cells are the memory cells and intellectual property that an analog design team has designed. To break down the understanding of macro cells, consider macro cells as pieces of logic blocks, mainly intellectual properties (IP), which can be used in a design without the need to building them from scratch. Thus, these memory cells are instrumental in reducing the total time for the design engineers that are required to complete their entire design.
 
 ![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/fe9ac562-fa98-48b8-a4b1-ac26f78898f4)
-
 
 ![difference](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ea4cb08d-d182-45a0-a6be-262446f9d494)
 
@@ -68,20 +68,20 @@ So if we want to manufacture this entire chip, we need to communicate with the F
 
 ![RISCV rtl to gds](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/cf43df44-08ad-42a8-b7c7-171d92000dfc)
 
-<b>C-Program</b> is first being compiled in its assembly language program which is the <b>RISC-V assembly language program</b>..then this assembly language program is converted into a machine language program which is nothing but a <b>binary language program (1's and 0's)</b> that is understood by the hardware of the computer i.e, these bits get executed in this particular layout and we get the required output.
+* <b>C-Program</b> is first compiled in its assembly language program which is the <b>RISC-V assembly language program</b>..then this assembly language program is converted into a machine language program which is nothing but a <b>binary language program (1's and 0's)</b> that is understood by the hardware of the computer i.e, these bits get executed in this particular layout and we get the required output.
 Another interface that needs to be present between RISC-V architecture and the layout is the <b>hardware description language (HDL)</b>. So we need to implement these RISC-V specifications using some RTL and then finally RTL to GDS flow.
-So from the user's point of view, we just execute this particular C-Program and that should get automatically executed by the chip of the hardware and we get the required output.
+* So from the user's point of view, we just execute this particular C-Program and that should get automatically executed by the chip of the hardware and we get the required output.
 
 ![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/75aba07b-29cb-4089-89e0-2b59a71198df)
 
 ![flowchart app run laptop](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c177530d-4e25-4acc-8763-b4d1578ffda3)
 
-This application software enters into the block called system software and here the system software converts the application software into binary language..
-The major components of  the system software are the operating system (O.S),  compiler, and assembler.
-The Operating system handles memories, i/o operation, and allocates memory...
-The output of the operating system is the small functions in the c/c++/Java language and these are being taken by the respective compiler and converted into instructions. (.exe files)...
-The syntax of these particular instructions depends upon what kind of hardware (chip layout) is available..for eg--intelx86, Arm, MIPS, or RISC-V...
-Now the job of the assembler is to take these instructions and convert them into respective binary numbers which the machine understands..these binary numbers are then fed to the hardware and according to the logic, the hardware generates the output.
+* This application software enters into the block called system software and here the system software converts the application software into binary language.
+* The major components of  the system software are the operating system (O.S),  compiler, and assembler.
+* The Operating system handles memories, i/o operation, and allocates memory.
+* The output of the operating system is the small functions in the c/c++/Java language and these are being taken by the respective compiler and converted into instructions. (.exe files).
+* The syntax of these particular instructions depends upon what kind of hardware (chip layout) is available..for eg--intelx86, Arm, MIPS, or RISC-V.
+* Now the job of the assembler is to take these instructions and convert them into respective binary numbers which the machine understands..these binary numbers are then fed to the hardware and according to the logic, the hardware generates the output.
 
 ![Screenshot 2024-03-14 195929](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/34874985-7e51-4006-999d-082265ae0aeb)
 
@@ -92,17 +92,17 @@ Now the job of the assembler is to take these instructions and convert them into
 
 ![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7af4ef46-c41d-4ef3-9ab2-4d10c923bfb1)
 
-1. <b>RTL IPs</b>- RTL IP refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in an electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), Verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
+1. `<b>RTL IPs</b>` - RTL IP refers to a product in electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design. An IP Core is a product in an electronic format that represents an integrated circuit function that can be instantiated in an integrated circuit design, including the circuits and modules of such integrated circuit design(s) and associated firmware, application programming interfaces, Software drivers, application-specific Software, and all register transfer language (RTL), Verilog, and other source materials to instantiate, modify, support, and maintain any of the foregoing.
 
-2. <b>EDA Tools</b>- Electronic Design Automation (EDA) tools are software tools used to design electronic systems such as integrated circuits and printed circuit boards. They have three key functions: simulation, design, and verification. EDA tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. They allow teams to predict circuit behavior, assemble circuit elements, and anticipate chip performance. EDA tools are used to verify that a design will meet all the requirements of the manufacturing process, known as design for manufacturability (DFM). Deficiencies in this area can cause the resultant chip to either not function or function at reduced capacity, and there are reliability risks.
+2. `<b>EDA Tools</b>` - Electronic Design Automation (EDA) tools are software tools used to design electronic systems such as integrated circuits and printed circuit boards. They have three key functions: simulation, design, and verification. EDA tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. They allow teams to predict circuit behavior, assemble circuit elements, and anticipate chip performance. EDA tools are used to verify that a design will meet all the requirements of the manufacturing process, known as design for manufacturability (DFM). Deficiencies in this area can cause the resultant chip to either not function or function at reduced capacity, and there are reliability risks.
 
-3. <b>PDK</b>- It stands for <b>Process Design Kit</b>. It is basically an interface between FAB and the designers which is a collection of files used to model a fabrication process for the EDA tools used to design an IC.
-PDK data consists of primarily-->
--Process design rules i.e DRC
--Device models
--Digital Std. cell library
--I/O library
-On June 30, 2020, Google released the first ever open-source PDK <b>(FOSS 130 nm Production PDK)</b>to the masses.
+3. `<b>PDK</b>` - It stands for <b>Process Design Kit</b>. It is basically an interface between FAB and the designers which is a collection of files used to model a fabrication process for the EDA tools used to design an IC.
+<br>PDK data consist of primarily-->
+* Process design rules i.e DRC
+* Device models
+* Digital Std. cell library
+* I/O library
+On June 30, 2020, Google released the first ever open-source PDK `(FOSS 130 nm Production PDK)` to the masses.
 PDK has only the data information for successful ASIC implementation using either open-source or close-source EDA tools.
 
 ![Screenshot 2024-03-14 232618](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/27cedcbe-cec2-4797-9718-0b7d7c10a6bb)
@@ -127,9 +127,9 @@ PDK has only the data information for successful ASIC implementation using eithe
 
 ![Screenshot 2024-03-15 001354](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c041a9a3-eeff-4c9f-a75d-23a3b44c7eca)
 
-## Introduction to OpenLANE
+### Introduction to OpenLANE
 
-<b>OpenLane</b> is an automated <b>RTL to GDSII flow</b> based on several components including <b>OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, KLayout</b>, and a number of custom scripts for design exploration and optimization. The flow performs all ASIC implementation steps from RTL all the way down to GDSII.
+<b>OpenLane</b> is an automated `RTL to GDSII flow` based on several components including `OpenROAD`, `Yosys`, `Magic`, `Netgen`, `CVC`, `SPEF-Extractor`, `KLayout`, and a number of custom scripts for design exploration and optimization. The flow performs all ASIC implementation steps from RTL all the way down to GDSII.
 
 ![Screenshot 2024-03-15 030342](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7dff59ee-8ee2-48c3-acbc-a93826d91b60)
 
@@ -137,23 +137,16 @@ PDK has only the data information for successful ASIC implementation using eithe
 
 ![Screenshot 2024-03-15 031552](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ecef32fe-1d9a-4f3b-a9bf-973448451508)
 
-<b>The objective of OpenLANE is to produce a clean GDSII with no human intervention, i.e. No LVS violations, No DRC violations, and no Timing violations.</b>
-</br>It is tuned for SkyWater 130nm Open PDK and also supports XFAB180 and GF130G.
+<b>The objective of OpenLANE is to produce a clean GDSII with no human intervention, i.e. `No LVS violations`, `No DRC violations`, and `No Timing violations`.</b>
 
-<b>It is containerized</b>.
-</br>--Functional out of the box.
-</br>--Instructions to build and run natively will follow.
-
-<b>Can be used to harden Macros and chips.</b>
-
-</br><b>Two modes of operation</b>.
-</br>--Autonomous & Interactive.
-
-</br><b>Design space exploration</b>.
-</br>--Find the best set of flow configurations.
-
-</br><b>Large number of design examples</b>.
-</br>--43 Designs with their best configuration and more details to be added.
+* It is tuned for SkyWater 130nm Open PDK and also supports `XFAB180` and `GF130G`.
+* It is containerized.
+    * Functional out of the box.
+    * Instructions to build and run natively will follow.
+* Can be used to harden Macros and chips.
+* Two modes of operation-- `Autonomous` & `Interactive`.
+* Design space exploration-- Find the best set of flow configurations.
+* Large number of design examples</b>-- 43 Designs with their best configuration and more details to be added.
 
 ![Screenshot 2024-03-15 033218](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2949751f-9566-422b-90d0-a0ccac9db5b1)
 
@@ -184,21 +177,22 @@ PDK has only the data information for successful ASIC implementation using eithe
 ![Screenshot 2024-03-15 034414](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ceef16aa-6f70-4925-bc9f-cf18226e4659)
 
 
-### Get familiar to open-source EDA Tools
+### Get familiar with open-source EDA Tools
 
 <b>go to Terminal--</b>
-</br><b>vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working-dir/openlane/$</b>
-
-</br> To invoke the openlane we have to use the two commands that are <b>"docker"</b> and <b>"flow.tcl -interactive"</b>.
-</br>interactive means all the process is done step by step.
-</br> Now the openlane has been invoked.
-</br> The next command should be <b>"package require openlane 0.9"</b>. this command basically imports all the packages which is required for the flow.
+```
+vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working-dir/openlane/$
+```
+* To invoke the openLane we have to use the two commands that are `docker` and `flow.tcl -interactive`. (interactive means all the process is done step by step.)
+* Now the openLane has been invoked.
+* The next command should be `package require openLane 0.9`..( this command basically imports all the packages which is required for the flow).
 </br>So these 3 steps have to be done every time.
-</br> The next command is <b>"prep -design picorv32a"</b> and after that it will show <b>"Preparation complete"</b>.
-</br> Here we actually prepare the design setup stage. we need to set up the file system specific to the flow. i.e. each & every step of the flow will be fetching files from a particular location. so that location needs to be created. <b>"mergeLef.py"</b> means it has merged both the .lef and .tlef files into one mergeLef.py file.
-</br> After the <b>"Preparation complete"</b> state, we will first check if any directory is created in the picorv32 directory or not!!..we will see that a <b>"runs"</b> directory is created in picorv32 directory. and inside the <b>"runs"</b> directory a folder with today's date will be created. inside this directory, all the folder structures that is required by openlane will be present.
-</br>after checking <b>"runs"</b> directory, now we will give command as <b>"run_synthesis"</b>.
-</br>after the synthesis is over, we will check how the result has been displayed in the <b>"runs"</b> directory.
+* The next command is `prep -design picorv32a` and after that, it will show <b>"Preparation complete"</b>.
+* Here we actually prepare the design setup stage. we need to set up the file system specific to the flow. i.e. each & every step of the flow will be fetching files from a particular location. so that location needs to be created.
+* `mergeLef.py` means it has merged both the `.lef` and `.tlef` files into one mergeLef.py file.
+* After the <b>"Preparation complete"</b> state, we will first check if any directory is created in the picorv32 directory or not!!.. We will see that a `runs` directory is created in the picorv32 directory and inside the <b>"runs"</b> directory a folder with today's date will be created. inside this directory, all the folder structures that is required by openlane will be present.
+* After checking <b>"runs"</b> directory, now we will give command as `run_synthesis`.
+* After the synthesis is over, we will check how the result has been displayed in the <b>"runs"</b> directory.
 
 ![Screenshot 2024-03-15 081613](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2049f796-fcfb-4ead-b793-33f756e1a75c)
 
@@ -209,7 +203,7 @@ PDK has only the data information for successful ASIC implementation using eithe
 
 ## Day-2 Good floorplan vs Bad floorplan and introduction to library cells
 ### Chip floor planning considerations
-  ###   Utilization factor and aspect ratio
+###   Utilization factor and aspect ratio
   ![photo_2024-03-19_21-32-08](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2362f638-49d5-4dce-8d95-6bbee1d2eac5)
 
   The below diagram is just a basic netlist that consists of two flipflops( launch flop and capture flop) and some combinational logic in between them. The dimensions of the chip will mostly depend on the dimensions of the logic gates/ standard cells not the wires. Wires will play important role in further stages.
