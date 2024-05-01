@@ -179,7 +179,40 @@ PDK has only the data information for successful ASIC implementation using eithe
 
 ### Get familiar with open-source EDA Tools
 
-<b>go to Terminal--</b>
+We are actually interested in working in `openlane_working_dir` directory.
+
+![image](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ddc1ded4-ea52-4f7e-b675-4cc84e00fbaa)
+
+</br> But let's explore what is inside the `vsdflow` directory--
+
+![Screenshot 2024-05-01 170426](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e2e60ebb-c13c-4f82-9c62-e0e926dcfcd8)
+ 
+
+![Screenshot 2024-05-01 170645](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/a15b7812-8b93-49a4-87ca-f9f6c93823f1)
+
+
+* Actually in the `openlane_working_dir`, there will be two directories-- `openlane` and `pdks`.
+
+![Screenshot 2024-05-01 175007](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c265bdf5-79d0-437c-a4ff-e1a3216946af)
+
+* pdk is the process design kit. T
+* In the above  `openlane` directory, we will be actually doing everything.
+* Coming to the `pdks` directory, This folder has all the information related to the pdk. The pdk which we will be using for this workshop is `SkyWater 130nm pdk`. This was recently made open source. So openlane is built around this pdk.
+* In the `pdks` directory, there is a `skywater-pdk` folder which has all the pdk related files (timing libraries, lef files). So all these silicon foundry files are compatible to work with commercial EDA tools and not with open-source EDA tools.
+
+![Screenshot 2024-05-01 180333](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/fcb85180-e3ba-4ec6-8ccd-fe25eebc6bba)
+
+
+* So open_pdks basically plans to solve that problem. They are basically sets of scripts and files that convert these foundry-level pdks to be compatible with open-source EDA tools like Magic, netgen, etc.
+* `Sky130a` is that pdk that has been made compatible to work with an open-source environment.
+* Inside this we will see two directories-- `libs.ref` and `libs.tech`. libs.ref contains all the technology-specific files and libs.tech contains tools-specific files.
+
+![Screenshot 2024-05-01 180658](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/96821a62-eae1-4910-baa9-4cff91080601)
+
+Inside the libs.ref directory, we will be working with sky130_fd_sc_hd  which contains all the technology files.
+
+* Now, we will actually start our labs from the `openlane` directory.
+
 ```
 vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working-dir/openlane/$
 ```
