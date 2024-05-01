@@ -255,7 +255,8 @@ $ less config.tcl
 * Inside this directory, the folder structure required by the openlane will be present.
 * As per now except for the "tmp" folder, rest all the folders will be empty.
 * `tmp` folder is where temporary files are stored.
-* `results` folder is present for each of the stage. So as per now, nothing has been  run, so there will be nothing inside this folder. -- reports folder will contain the report inside each of the stages in the flow.
+* `results` folder is present for each of the stage. So as per now, nothing has been  run, so there will be nothing inside this folder.
+* `reports` folder will contain the report inside each of the stages in the flow.
 * The `config.tcl` file present here shows which all parameter is being taken by the run. i.e. "pdk", "lef information", "tracks information", "tlef information", "library information". So if we make any changes in the original configuration file, after running the floorplan, that will be updated here in this config.tcl file.
 * The `cmds.log` file takes the record of all the commands that we have used.
 
