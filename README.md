@@ -262,7 +262,7 @@ $ less config.tcl
 ## Day-2 Good floorplan vs Bad floorplan and introduction to library cells
 ### Chip floor planning considerations
 
-## Utilization factor and aspect ratio
+### Utilization factor and aspect ratio
   ![photo_2024-03-19_21-32-08](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2362f638-49d5-4dce-8d95-6bbee1d2eac5)
 
   The below diagram is just a basic netlist that consists of two flip-flops ( launch flop and capture flop) and some combinational logic in between them. The dimensions of the chip will mostly depend on the dimensions of the logic gates/ standard cells, not the wires. Wires will play an important role in further stages.
