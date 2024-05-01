@@ -222,12 +222,33 @@ vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working-dir/openlane/$
 ```
 * To invoke the openLane we have to use the two commands that are `docker` and `flow.tcl -interactive`. (interactive means all the process is done step by step.)
 * Now the openLane has been invoked.
-* The next command should be `package require openLane 0.9`..( this command basically imports all the packages which is required for the flow).
-</br>So these 3 steps have to be done every time.
-* The next command is `prep -design picorv32a` and after that, it will show <b>"Preparation complete"</b>.
-* Here we actually prepare the design setup stage. we need to set up the file system specific to the flow. i.e. each & every step of the flow will be fetching files from a particular location. so that location needs to be created.
+* The next command should be `package require openlane 0.9`..( this command basically imports all the packages which is required for the flow).
+* </br>So these 3 steps have to be done every time.
+
+* All the designs that are run by the openlane are extracted from the `designs` folder present inside the `openlane` directory.
+* These are all the designs already built-in in the openlane. but we will be doing it for `picorv32a`.
+
+![Screenshot 2024-05-01 183746](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/89a070d9-6153-4fd2-bc7c-7ceb80fc7035)
+
+* The `picorv32a` directory will have `src` folder and `config.tcl` file.
+* The "src" folder will contain `.v` and `.sdc` files inside it.
+
+![Screenshot 2024-05-01 185018](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/b6f15e16-85ac-4370-9601-c7e2923b4205)
+
+* `config.tcl` bypasses any configurations that have been already done into openlane.
+* command to open config.tcl file--
+```
+$ less config.tcl
+```
+* In the config.tcl file, we actually set the design_name, Verilog files, sdc files, clock period, clock port, and filename variable and then we source this file. if suppose clock period is set to any other value in the flow as default, then we can override that value using config.tcl file.
+* So, the precedence in which the openlane takes the value is first the default value already set in the openlane, and second is the value set in the config.tcl file and the third is the sky130A_sky130_fd_sc_hd_config.tcl which means the last one has the highest priority.
+
+**Now coming back to openlane--**
+
+* The next command is `prep -design picorv32a` and after that, it will show `Preparation complete`.
+* Here we actually prepare the design setup stage. we need to set up the file system specific to the flow. i.e. each & every step of the flow will be fetching files from a particular location. So that location needs to be created.
 * `mergeLef.py` means it has merged both the `.lef` and `.tlef` files into one mergeLef.py file.
-* After the <b>"Preparation complete"</b> state, we will first check if any directory is created in the picorv32 directory or not!!.. We will see that a `runs` directory is created in the picorv32 directory and inside the <b>"runs"</b> directory a folder with today's date will be created. inside this directory, all the folder structures that is required by openlane will be present.
+* After the **Preparation complete** state, we will first check if any directory is created in the picorv32 directory or not!!.. We will see that a `runs` directory is created in the picorv32 directory and inside the <b>"runs"</b> directory a folder with today's date will be created. inside this directory, all the folder structures that are required by openlane will be present.
 * After checking <b>"runs"</b> directory, now we will give command as `run_synthesis`.
 * After the synthesis is over, we will check how the result has been displayed in the <b>"runs"</b> directory.
 
