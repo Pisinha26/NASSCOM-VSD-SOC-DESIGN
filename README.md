@@ -195,7 +195,7 @@ We are actually interested in working in `openlane_working_dir` directory.
 
 ![Screenshot 2024-05-01 175007](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c265bdf5-79d0-437c-a4ff-e1a3216946af)
 
-* pdk is the process design kit. T
+* **pdk** stands for "process design kit".
 * In the above  `openlane` directory, we will be actually doing everything.
 * Coming to the `pdks` directory, This folder has all the information related to the pdk. The pdk which we will be using for this workshop is `SkyWater 130nm pdk`. This was recently made open source. So openlane is built around this pdk.
 * In the `pdks` directory, there is a `skywater-pdk` folder which has all the pdk related files (timing libraries, lef files). So all these silicon foundry files are compatible to work with commercial EDA tools and not with open-source EDA tools.
@@ -203,9 +203,13 @@ We are actually interested in working in `openlane_working_dir` directory.
 ![Screenshot 2024-05-01 180333](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/fcb85180-e3ba-4ec6-8ccd-fe25eebc6bba)
 
 
-* So open_pdks basically plans to solve that problem. They are basically sets of scripts and files that convert these foundry-level pdks to be compatible with open-source EDA tools like Magic, netgen, etc.
-* `Sky130a` is that pdk that has been made compatible to work with an open-source environment.
-* Inside this we will see two directories-- `libs.ref` and `libs.tech`. libs.ref contains all the technology-specific files and libs.tech contains tools-specific files.
+* So `open_pdks` basically plans to solve that problem. They are basically sets of scripts and files that convert these foundry-level pdks to be compatible with open-source EDA tools like Magic, netgen, etc.
+* `Sky130A` is that pdk that has been made compatible to work with an open-source environment.
+* Inside the `Sky130A` directory we will see two directories-- `libs.ref` and `libs.tech`.
+
+![Screenshot 2024-05-01 181429](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e6009640-9e5b-4f6e-88e9-a8f7ad864e57)
+
+* **libs.ref** contains all the technology-specific files and **libs.tech** contains tools-specific files.
 
 ![Screenshot 2024-05-01 180658](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/96821a62-eae1-4910-baa9-4cff91080601)
 
