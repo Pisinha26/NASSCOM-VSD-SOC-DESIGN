@@ -241,7 +241,7 @@ vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working-dir/openlane/$
 $ less config.tcl
 ```
 * In the config.tcl file, we actually set the design_name, Verilog files, sdc files, clock period, clock port, and filename variable and then we source this file. if suppose clock period is set to any other value in the flow as default, then we can override that value using config.tcl file.
-* So, the precedence in which the openlane takes the value is first the default value already set in the openlane, and second is the value set in the config.tcl file and the third is the sky130A_sky130_fd_sc_hd_config.tcl which means the last one has the highest priority.
+* So, the precedence in which the openlane takes the value is first the "default value already set in the openlane", and second is the "value set in the config.tcl file" and the third is the "sky130A_sky130_fd_sc_hd_config.tcl" which means the last one has the highest priority.
 
 **Now coming back to openlane--**
 
@@ -261,7 +261,8 @@ $ less config.tcl
 
 ## Day-2 Good floorplan vs Bad floorplan and introduction to library cells
 ### Chip floor planning considerations
-###   Utilization factor and aspect ratio
+
+**Utilization factor and aspect ratio**
   ![photo_2024-03-19_21-32-08](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2362f638-49d5-4dce-8d95-6bbee1d2eac5)
 
   The below diagram is just a basic netlist that consists of two flipflops( launch flop and capture flop) and some combinational logic in between them. The dimensions of the chip will mostly depend on the dimensions of the logic gates/ standard cells not the wires. Wires will play important role in further stages.
