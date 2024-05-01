@@ -252,18 +252,19 @@ $ less config.tcl
 
 ![Screenshot 2024-05-01 194254](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/17b29de1-69d8-4fa4-8c01-27e9705a59df)
 
-* Inside this directory, the folder structure required by the openlane will be present.
-* As per now except for the "tmp" folder, rest all the folders will be empty.
-* `tmp` folder is where temporary files are stored.
-* `results` folder is present for each of the stage. So as per now, nothing has been  run, so there will be nothing inside this folder.
-* `reports` folder will contain the report inside each of the stages in the flow.
-* The `config.tcl` file present here shows which all parameter is being taken by the run. i.e. "pdk", "lef information", "tracks information", "tlef information", "library information". So if we make any changes in the original configuration file, after running the floorplan, that will be updated here in this config.tcl file.
-* The `cmds.log` file takes the record of all the commands that we have used.
+  * Inside this directory, the folder structure required by the openlane will be present.
+  * As per now except for the "tmp" folder, rest all the folders will be empty.
+  * `tmp` folder is where temporary files are stored.
+  * `results` folder is present for each of the stage. So as per now, nothing has been  run, so there will be nothing inside this folder.
+  * `reports` folder will contain the report inside each of the stages in the flow.
+  * The `config.tcl` file present here shows which all parameter is being taken by the run. i.e. "pdk", "lef information", "tracks information", "tlef information", "library information". So if we make any changes in the original configuration file, after running the floorplan, that will be updated here in this config.tcl file.
+  * The `cmds.log` file takes the record of all the commands that we have used.
 
 * After checking <b>"runs"</b> directory, now we will give command as `run_synthesis`.
-* After the synthesis is over, we will check how the result has been displayed in the <b>"runs"</b> directory.
 
 ![Screenshot 2024-03-15 081613](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2049f796-fcfb-4ead-b793-33f756e1a75c)
+
+* After the synthesis is over, we will check how the result has been displayed in the <b>"runs"</b> directory.
 
 <b>This is the synthesis result. we calculated the flop ratio.</b>
 
