@@ -248,7 +248,17 @@ $ less config.tcl
 * The next command is `prep -design picorv32a` and after that, it will show `Preparation complete`.
 * Here we actually prepare the design setup stage. we need to set up the file system specific to the flow. i.e. each & every step of the flow will be fetching files from a particular location. So that location needs to be created.
 * `mergeLef.py` means it has merged both the `.lef` and `.tlef` files into one mergeLef.py file.
-* After the **Preparation complete** state, we will first check if any directory is created in the picorv32 directory or not!!.. We will see that a `runs` directory is created in the picorv32 directory and inside the <b>"runs"</b> directory a folder with today's date will be created. inside this directory, all the folder structures that are required by openlane will be present.
+* After the **Preparation complete** state, we will first check if any directory is created in the picorv32 directory or not!!.. We will see that a `runs` directory is created in the picorv32 directory and inside the <b>"runs"</b> directory a folder with today's date will be created inside this directory.
+
+![Screenshot 2024-05-01 194254](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/17b29de1-69d8-4fa4-8c01-27e9705a59df)
+
+* Inside this directory, the folder structure required by the openlane will be present.
+* As per now except for the "tmp" folder, rest all the folders will be empty.
+* `tmp` folder is where temporary files are stored.
+* `results` folder is present for each of the stage. So as per now, nothing has been  run, so there will be nothing inside this folder. -- reports folder will contain the report inside each of the stages in the flow.
+* The `config.tcl` file present here shows which all parameter is being taken by the run. i.e. "pdk", "lef information", "tracks information", "tlef information", "library information". So if we make any changes in the original configuration file, after running the floorplan, that will be updated here in this config.tcl file.
+* The `cmds.log` file takes the record of all the commands that we have used.
+
 * After checking <b>"runs"</b> directory, now we will give command as `run_synthesis`.
 * After the synthesis is over, we will check how the result has been displayed in the <b>"runs"</b> directory.
 
@@ -257,6 +267,10 @@ $ less config.tcl
 <b>This is the synthesis result. we calculated the flop ratio.</b>
 
 ![Screenshot 2024-03-15 095813](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/a812755b-55c0-4d0b-8506-f4eebb1780ad)
+
+* To get more information about the openlane refer to this--
+</br> [open lane/efabless github](https://github.com/efabless/openlane2)
+</br> [open lane document](https://openlane2.readthedocs.io/en/latest/index.html)
 
 
 ## Day-2 Good floorplan vs Bad floorplan and introduction to library cells
