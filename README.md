@@ -281,7 +281,7 @@ $ less config.tcl
 ### Utilization factor and aspect ratio
   ![photo_2024-03-19_21-32-08](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2362f638-49d5-4dce-8d95-6bbee1d2eac5)
 
-  The below diagram is just a basic netlist that consists of two flip-flops ( launch flop and capture flop) and some combinational logic in between them. The dimensions of the chip will mostly depend on the dimensions of the logic gates/ standard cells, not the wires. Wires will play an important role in further stages.
+  The diagram shown below is just a basic netlist that consists of two flip-flops ( launch flop and capture flop) and some combinational logic in between them. The dimensions of the chip will mostly depend on the dimensions of the logic gates/ standard cells, not the wires. Wires will play an important role in further stages.
 
   ![Screenshot 2024-03-20 000318](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2facc477-3d64-4201-b3c9-41ae5996f3a8)
 
@@ -292,6 +292,8 @@ $ less config.tcl
 
   Now the circuit above should be built inside this piece of area and should not exceed this area.
   <br>The below diagram shows the Core & Die section of a chip.
+  * `Core` is the section of the chip where the fundamental logic of the design is placed.
+  * `Die` which consists of a core, is a small semiconductor material specimen on which the fundamental circuit is fabricated. 
 
   ![photo_2024-03-20_00-31-09](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/6a850be8-b3e7-43c2-997a-65a4e9404073)
   
@@ -300,7 +302,7 @@ $ less config.tcl
   <br> If U.F = 0.8 that means 80% is used for placing the cells and 20% is used for routing.
 
   ![photo_2024-03-20_00-36-44](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e51befee-57fb-461c-ad95-7de824967579)
-  Ideally, the utilization factor should be 0.5 or 0.6.
+  Ideally, the utilization factor should be 0.5 or 0.6, and the remaining area used for optimization purposes, i.e. to add any buffers or extra cells, routing etc.
 
   <b>Aspect Ratio</b>
   <br>It is defined as the ratio of height and width of the core.
@@ -322,7 +324,7 @@ $ less config.tcl
 
 ![Screenshot 2024-03-20 033942](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/cb470787-61e0-4557-aec3-3226eb1ca2c4)
 
-These pre-placed cells have been placed in this area depending on the design scenario. So, the locations of these pre-placed cells are never touched while we go in the design cycle. So, the locations have to be very well-defined.
+These pre-placed cells have been placed in this area depending on the design scenario. So, the locations of these pre-placed cells are never touched while we go in the design cycle. So, the locations have to be very well-defined. Similarly, there are other IPs also available like memory, clock gating cell, comparator, and mux. So all of them can be implemented once and can be instantiated multiple times onto a netlist. That's why they are called preplaced cells because these cells are just placed once in the chip. The arrangement of these IPs in a chip is referred to as floorplanning. We have to define the locations of these cells before automated placement and routing. Automated placement and routing tools place the remaining logical cells in the design onto the chip.
 
 
 ### De-coupling capacitors  
