@@ -352,4 +352,55 @@ With this, we have taken care of the local communication.
 
 ### Power Planning
 
+![Screenshot 2024-05-05 164856](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/4fb0ab23-a28d-4a43-872e-1d8f2da378e6)
+
+![Screenshot 2024-05-05 170249](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/fba7e5ca-a0eb-4b37-ac9d-9db71dd0839a)
+
+When we say one particular line of 16-bit bus is logic 1 it says that the capacitor is being charged to Vdd, and whenever we say logic 0 it says that the capacitor is discharged to ground. Let consider this 16-bit bus connected to an inverter. So, all the capacitors that are initially charged will get discharged and vice-versa due to the inverter.
+
+![Screenshot 2024-05-05 170606](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/d513c5d5-4af0-4360-a979-ec16967824e1)
+
+But the problem here is that all capacitor is connected to a single ground. This will cause a bump in the 'ground' tap point during discharging. That bump is called a "Ground Bounce". If the size of the bump exceeds the noise margin level might enter into an undefined state (can either go to logic 1 or logic 0). 
+
+![Screenshot (68)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/45917359-0d04-491a-9633-11f53d298b2b)
+ 
+A similar concept when capacitor which are at "0 volts" will have to charge to "V volts" through a single Vdd tap point. This is known as a "voltage droop" because all of them are demanding current at the same time. And as long as this voltage level is below the noise margin level rather than going to an unpredicted state(either 0 or 1), there is not an issue.
+<br> The only solution of this problem is to have a multiple power supply. So, each block will take charge from the nearest power supply and similarly, dump the charge to the nearest ground. This type of power supply is called "Mesh". That's the reason there are multiple power supplies in the recent chips.
+
+![Screenshot (69)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/fe0fbf05-31af-457f-802d-3455dce9e024)
+
+This is the complete power planning of the chip---
+
+![Screenshot (70)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/f936722e-d914-4cb7-b474-c1c6e4908192)
+
+
+### Pin Placement and logical cell placement blockage
+
+**Pin Placement**
+
+
+Let's say, this is the design that we are looking to implement. The first circuit is driven by clk1 and the second circuit is driven by clk2. Both the circuits have different inputs Din1 and Din2 respectively and outputs as Dout1 and Dout2 respectively. Along with it, we have some pre-placed cells "block a" and "block b". So, we have 4 inputs ports (Din1, Din2, clk1, clk2) and 3 output ports (Dout1, clkOut, Dout2). 
+
+![Screenshot (71)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/b8643367-5a92-4178-9e15-39628824970a)
+
+let's there be one more section of the design that needs to be implemented as shown below--
+
+![Screenshot (72)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e98976a5-ffa5-4f37-9909-22f4f3a0c789)
+
+So, this is the complete design "netlist"--
+
+![Screenshot (73)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c34cf6b1-caea-419b-8e33-02219cd0a635)
+
+Now, this netlist will be placed in the chip that we are trying to design. The frontend team will decide the input and output connectivity while the backend team will do the pin placements. So, according to the pin placements, we have to locate the pre-placed cells on the chip. Also, we can observe is that the clock ports are bigger in size than the data ports because the input clk has to continuously provide the signals  to every elements of the chip, and the output clk has to take out the signals. So, both the call has to work at a fast rate. The main reason for the bigger size is to provide a less resistance path to the clock ports.
+
+![Screenshot (74)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c5b87e94-e3bb-4d20-a74e-0b71aa6a340a)
+
+One more thing to be taken care of is this pin placement area is blocked for routing and cell placements, for that we need to do logical cell placement blockage.
+</br>Now the floor plan is ready for the Placement and Routing step.
+
+
+
+
+
+
 
