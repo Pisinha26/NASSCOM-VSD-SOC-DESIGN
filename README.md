@@ -722,10 +722,35 @@ Similarly, we will do these for all the values of (Wp/Lp = x.Wn/Ln) and make a t
 
 ### Lab steps to git clone vsdtdcelldesign
 
+we will clone this [github repository](https://github.com/nickson-jose/vsdstdcelldesign.git) into our "openlane" directory using the following command--
+```
+$ git clone https://github.com/nickson-jose/vsdstdcelldesign.git
+```
+* In this repository, there are .mag files for inverters, PMOS, NMOS, and .lib files. These libraries(.lib) files are Skywater SPICE model files for NMOS and PMOS.
+
+![Screenshot 2024-05-06 214321](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0bff01f4-1221-4766-a788-5c2d919b8472)
+
+* In this lab, we will be actually creating a new cell and plugging it into the openlane flow instead of removing and editing.
+* Let's open the .mag files and see which layers are used in building an inverter. Actually, we don't need to build an inverter from scratch, we already have it, so we will be doing SPICE extraction and post-layout SPICE simulation.
+* Before opening the ".mag" file, we need to open the "tech" file, and to open it--
+
+![Screenshot 2024-05-06 215215](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/d3c87440-ccc5-464e-8766-46309478aadb)
+
+Now, we will copy the `sky130A.tech` file(present in the "magic" folder) into the "vsdstdcelldesign" path which we have cloned now using the command--
+
+![Screenshot 2024-05-06 220621](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/019c6c4e-0469-4d3e-92d7-d56873fd2bb1)
+
+Now, use the command as shown below--
+
+![Screenshot 2024-05-06 221222](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0fc760de-ea0c-4ae0-aac1-f8d6d4777f5a)
+
+Then, we will get the layout of our inverter in the "Magic tool".
+
+![Screenshot 2024-05-06 221040](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/b899f95d-5dec-4201-a046-9a18269e351a)
 
 
-
-
+### Inception of layout A CMOS fabrication process
+### Creating Active regions
 
 
 
