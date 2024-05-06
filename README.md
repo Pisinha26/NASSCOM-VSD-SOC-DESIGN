@@ -583,17 +583,46 @@ Whatever we see in that particular layout, metal layers, contacts, each and ever
 
 ![Screenshot 2024-05-06 160849](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/1f4e17fa-e1b2-4ad3-b50e-2b615d0d36c3)
 
-**slew_low_rise_thr** -- its typical value is around 20%  from the low power supply.
-**slew_high_rise_thr** -- its typical value is 20% point from the top power supply.
+* **slew_low_rise_thr** -- its typical value is around 20%  from the low power supply.
+* **slew_high_rise_thr** -- its typical value is 20% point from the top power supply.
 ![Screenshot 2024-05-06 163347](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e5b17bda-6115-47cf-b94b-143f18e7d9ee)
 
-**in_rise_thr** -- typical value is 50%.
-**out_rise_thr** -- typical value is 50%.
-**in_fall_thr** -- typical value is 50%.
-**out_fall_thr** -- typical value is 50%.
+* **in_rise_thr** -- typical value is 50%.
+* **out_rise_thr** -- typical value is 50%.
+* **in_fall_thr** -- typical value is 50%.
+* **out_fall_thr** -- typical value is 50%.
 we need two points on the graph i.e. on the input waveform and the other on the output waveform to calculate the rise delay and the fall delay.
 ![Screenshot 2024-05-06 164313](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/6fceed1f-3567-4bad-91fd-d91ed7cb9d73)
 ![Screenshot 2024-05-06 165112](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/5a19f066-f879-45cb-b318-aa4fde9f813d)
+
+### Propagation delay and transition time
+
+**To calculate the timing delay**.
+```
+time delay = time(out_*_thr) - time(in_*_thr)
+```
+Now, let's take a sample waveform where the "in_rise_thr" and "out_fall_thr" is kept at 50%.
+
+![Screenshot (89)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e5ebef53-aa1a-4c0c-a210-1098f42a72a5)
+
+But, let's suppose the threshold points are changed, then we will observe a negative delay. The reason behind having a negative delay is the poor choice of the threshold point. So, the choice of threshold point is really important.
+
+![Screenshot (90)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/cf6b8292-3fab-4879-b145-974bf6c645db)
+
+**To calculate the transition time**
+```
+For the rising waveform--
+transition time = time(slew_high_rise_thr) - time(slew_low_rise_thr)
+
+For the falling waveform--
+transition time = time(slew_high_fall_thr) - time(slew_low_fall_thr)
+```
+![Screenshot 2024-05-06 172854](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/4c10186e-8da6-4a4f-8569-e1e9adb7da78)
+
+## Day_3 Design library cell using Magic Layout and ngspice characterization
+### Labs for CMOS inverter ngspice simulations
+### IO placer revision
+
 
 
 
