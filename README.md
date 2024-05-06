@@ -552,9 +552,56 @@ If we look into one of the inverters from the library, it has to go through a ce
  
 ![Screenshot 2024-05-06 150408](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7c505d34-491b-4c05-b3a8-bdac8f4796f2)
 
-  * `Characterization` - 
+ After the stick diagram, the next step is to convert this stick diagram into a typical layout according to the DRC rules (given by the foundry) and the user-defined specifications using the "Magic tools".
+The final step is to extract the parasitics of this particular layout and characterize it in terms of timing, so before that, the output of the layout design will be GDSII, LEF, and extracted spice netlist(.cir).
+  * `Characterization` is the step that will help to get the timing, noise, and power information and the output of the characterization is the timing,noise,power(.libs), and the functionality of this particular circuit.
+Let's say we did circuit design and layout design. So out of that, the inputs available with us let's say is the layout of the buffer using the "Magic" tool. Also, we have the description of the buffer along with the power sources connected.
+Whatever we see in that particular layout, metal layers, contacts, each and every element will have associated resistances and capacitances with them. So we have actually extracted them in terms of spice netlist.
 
-  
+### Typical Characterization Flow
+* Characterization Flow--
+  * The first step is to read the model file which comes out of the foundry.
+  * The second step is to read the extracted spice netlist.
+  * The third step is to recognize the behavior of the buffer.
+  * The fourth step is to read the sub-circuits of the inverters.
+  * The fifth step is to attach the necessary power source.
+  * The sixth step is to apply the stimulus.
+  * The seventh step is to provide necessary output load capacitances.
+  * The eighth step is to provide the necessary simulation commands.
+ 
+  ![Screenshot 2024-05-06 155546](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/1812935a-856b-4d17-957b-4070b2fed492)
+
+  Now, the next step is to feed these all 8 steps in the form of a configuration file to the characterization software called "GUNA" and this software will generate timing, noise, and power models.
+
+  ![Screenshot 2024-05-06 155838](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/74f59359-0b00-4600-b814-a93310ff311c)
+
+### General Timing Characterization Parameters
+### Timing threshold definitions
+
+* As seen in the previous section we have inverters connected back to back, we have power sources, and we have the stimulus applied to the inverter, all these things bring a very important point of understanding different threshold points of a waveform itself and it is called as "Timing threshold definitions'. 
+* These are the inputs or variables related to any waveform we see.
+
+![Screenshot 2024-05-06 160849](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/1f4e17fa-e1b2-4ad3-b50e-2b615d0d36c3)
+
+**slew_low_rise_thr** -- its typical value is around 20%  from the low power supply.
+**slew_high_rise_thr** -- its typical value is 20% point from the top power supply.
+![Screenshot 2024-05-06 163347](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e5b17bda-6115-47cf-b94b-143f18e7d9ee)
+
+**in_rise_thr** -- typical value is 50%.
+**out_rise_thr** -- typical value is 50%.
+**in_fall_thr** -- typical value is 50%.
+**out_fall_thr** -- typical value is 50%.
+we need two points on the graph i.e. on the input waveform and the other on the output waveform to calculate the rise delay and the fall delay.
+![Screenshot 2024-05-06 164313](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/6fceed1f-3567-4bad-91fd-d91ed7cb9d73)
+![Screenshot 2024-05-06 165112](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/5a19f066-f879-45cb-b318-aa4fde9f813d)
+
+
+
+
+
+
+
+
 
 
 
