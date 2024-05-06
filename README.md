@@ -1,7 +1,8 @@
 # NASSCOM-VSD-SOC-DESIGN
 
 # Advanced-Physical-Design-Using-OpenLANE-Sky130
-[Day_1](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/blob/main/README.md#day_1-inception-of-open-source-eda-openlane--sky130pdk)
+* [Day_1 - Inception of Open-Source EDA, OpenLANE & Sky130PDK](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/blob/main/README.md#day_1-inception-of-open-source-eda-openlane--sky130pdk)
+* 
 
 ## Day_1 Inception of Open-Source EDA, OpenLANE & Sky130PDK
 
