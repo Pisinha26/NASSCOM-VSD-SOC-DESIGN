@@ -435,7 +435,7 @@ So, config.tcl has overridden the system defaults.
 
 But looking at the "def" file doesn't make any sense. So, to see the actual layout after the flow plan, we do it in "Magic" using the command--
 ```
-magic -T /home/kunalg123/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+$ magic -T /home/kunalg123/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 ```
 "&" actually free up the prompt when magic launches.
 
@@ -460,13 +460,103 @@ To select on the screen, press "s", the object will get highlighted.
 ![Screenshot 2024-05-05 205301](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/453e4674-4c49-4d07-9da2-b73de9371519)
 
 **Binding netlist**
-Actually, we have all of these gates in the square box shape with physical dimensions i.e. height and width. and these all cells and gates are plced at a place called "library". Library can be divided into two sublibraries- one library has information about shape and size, while the other library has information about delays.
+Actually, we have all of these gates in the square box shape with physical dimensions i.e. height and width. and these all cells and gates are placed at a place called "library". The library can be divided into two sublibraries- one library has information about shape and size, while the other library has information about delays.
 </br>Library has different flavors for each and every cell. i.e. same cells can have bigger sizes on different shelves. So, the bigger the size of the cell, the lesser the resistance path, and will work faster and have a lesser delay.
 </br> The below diagram shows different flavors of the same cell, and we can pick whatever we want based on the timing conditions and space on the floorplan--
 ![Screenshot 2024-05-05 210517](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/70cb6d41-6e7d-430a-8747-86589e32c7da)
 
 **Placement**
-Once we have given proper shape and size to each and every gate, the next step is to take those particular shapes and sizes and place it on the floorplan. We have the floorplan with input and output ports, we have particular netlist, and we have particular size given to each component of this netlist. So we have the physical view of the logic gates. The next step is to place the netlist onto the floorplan using the  connectivity information from the netlist and design the physical view.
+Once we have given proper shape and size to each and every gate, the next step is to take those particular shapes and sizes and place it on the floorplan. We have the floorplan with input and output ports, we have particular netlist, and we have particular size given to each component of this netlist. So we have the physical view of the logic gates. The next step is to place the netlist onto the floorplan using the  connectivity information from the netlist and design the physical view. The placement should be such that the pre-placed cell locations should not be affected and also no cell should be placed over the pre-placed cells. We need to place the physical view of the netlist onto the floorplan in such a fashion that logical connectivity should be maintained and that particular circuit should interact with their input and output ports  to maintain minimal timing and delay.
+
+![Screenshot (77)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/01c16d1c-c9f0-4c2a-b081-510810e03305)
+
+Now, we will go for optimized placement to reduce the distance between cells.
+
+**Optimize placement using estimated wire length and capacitance**
+
+If we look at the capacitance from Din2 to FF1 it is huge because the wire length is huge, in that case even the resistance will also be huge. If we send the signal from Din2 then it will be difficult for FF1 to catch that input because the distance is large. So we can place some intermediate steps to maintain the signal integrity. By this, the input is successfully driven to the FF1 from Din2. These intermediate steps are called here Repeaters. Repeaters are basically buffers that will recondition the original signal. By using repeaters, we resolve the problem of signal integrity but there will be a loss of area because more and more repeaters are used, so more area will be used in the particular floorplan.
+
+* In stage 1, there is no need for any repeater to transmit the signal.
+
+![Screenshot (78)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/5f3ae9a8-f341-44f8-8d1e-444161f3d09b)
+
+* stage 2
+
+![Screenshot (79)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/602f994e-e048-4854-b2c0-83d6e0d0cc7c)
+
+* stage 3
+
+![Screenshot (80)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/79880af1-1f48-484a-af3b-77aa3c5b991f)
+
+* stage 4
+
+![Screenshot (81)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/d672ac8f-cd4b-4ccc-b785-e11f52a5fe81)
+
+Next what we have to do is to check whether what is done is correct or not by just checking the datapath. Considering the clocks are ideal, i.e. the time required for clk to reach any of the flipflops is 0. So, let's quickly do a  setup timing analysis and based on this, we will come to know whether the placement done is reasonable or not.
+
+### Need for libraries and characterization
+
+* Every IC design flow needs to go through several steps-- 
+    * The first step is `Logic Synthesis` (converting the functionality into legal hardware). The output of the logic synthesis is the arrangement of gates that will represent the original functionality that has been described using an RTL.
+    * The next step is `Floorplanning` where we import the output of logic synthesis and decide the size of the Core and Die.
+    * The next step after floorplanning is `Placement`, where we take the particular logic cell and place it on the chip in such a fashion that initial timing is better.
+    * The next step is `CTS(Clock tree synthesis)`, where we take care that clk should reach each and every signal at the same time also take care that each clk signal has equal rise and fall.
+    * The next step is `Routing`, routing has to go through a certain flow dependent on the characterization of the flip flop.
+    * The last step is `STA(Static timing analysis)`, where we try to set the set-up time, hold time, and maximum achieved frequency of the circuit.
+    * One common thing across all stages is "GATES or Cells".
+
+  ### Congestion aware placement using RePlAce
+
+  We are actually doing a congestion-related placement, not considering the timing.
+Placement in openlane occurs in two stages- `global placement`(the main purpose is to reduce the wire length) and `detail placement`.
+Legalization happens in detail placement, i.e. the standard cells are placed in standard cells rows, they have to be exactly inside the rows and there should be no overlaps.
+
+</br>Use the command --
+```
+run_placement
+```
+Now the placement is done, and we want to see how the design is post-placement. So, go to the placement directory and use the command--
+```
+$ magic -T /home/kunalg123/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+we will get the following placement output in "Magic" as shown below--
+
+![Screenshot 2024-05-06 133525](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/21c21e31-dcfc-438d-9529-506af543220e)
+
+These many standard cells were actually at the initial layout of the floorplan. If we zoom in, we can see the placement of the standard cells in the standard cell rows.
+
+![Screenshot 2024-05-06 134149](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/5c8353b1-1e6c-446f-829f-b7446d14fd98)
+
+### Cell design and characterization flow
+### Inputs for cell design flow
+
+![Screenshot (82)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/70ef2ff2-5369-484a-bec5-aa0b499e6372)
+
+If we look into one of the inverters from the library, it has to go through a cell design flow which is divided into three parts-- `inputs`(needed to design the inverter), `design steps`, and `outputs`(used by the EDA tools) so that it is easily understandable by the EDA tools.
+</br> Inputs required for the cell design are PDKs: DRC & LVS rules(provides a tech file with some rules by foundry), SPICE models(gives information about threshold voltage equation along with the required parameters), library & user-defined specs.
+
+### Circuit design step
+
+* There are some user-defined specifications:
+  * The separation between the power rail and the ground rail defines the `cell height`, and it is the responsibility of the library developers to maintain the cell height.
+  * The `cell width` depends on the timing and drive strength(if a cell has got a drive length of 10, it will be able to drive even more longer wires).
+  * A typical inverter has to operate at a certain supply voltage which is being provided by the top-level designers and according to that the library developers have to take that supply voltage and design the library cell in such a fashion that it operates at this particular supply voltage and take care of the noise margin levels w.r.t this supply voltage.
+  * There is a specification that certain libraries have to be built on certain metal layers themselves.
+  * The library developers need to decide on the pin location according to the requirement.
+  * For a typical gate length of 130 nm, the drawn gate length could be 125nm or 130 nm based on the library and user-defined specifications given to us.
+ 
+* Now, coming to the design steps, since all the inputs are available with the library developers, it's their responsibility to take these inputs and based on these inputs, come up with a library cell that adheres to these inputs, so that when this particular library cell is getting plucked into the top level design i.e. in the CTS stage, placement stage, routing stage, it should not be a problem for the physical design steps.
+* Design involves three different steps-- 
+  * `Circuit design` - To design the pmos and nmos transistor in such a fashion that all the required values are maintained, the circuit design step is mainly based on spice simulation. The output that we get from the circuit design is called CDL(circuit description language).
+  * `Layout design` - once we do the circuit design, i.e. we know the value of the transistor parameters, we need to implement these values as a layout. The first step is to get the function implemented through a MOS transistor. The second step is to get a pmos and nmos network graph and then to obtain the Euler's path)
+ 
+![Screenshot 2024-05-06 150408](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7c505d34-491b-4c05-b3a8-bdac8f4796f2)
+
+  * `Characterization` - 
+
+  
+
+
 
 
 
