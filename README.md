@@ -626,8 +626,101 @@ transition time = time(slew_high_fall_thr) - time(slew_low_fall_thr)
 ### Labs for CMOS inverter ngspice simulations
 ### IO placer revision
 
+* Now we will be going in depth into one of the cells. In our example, we took an inverter. We will be doing the post-layout simulation and post-characterizing our sample cell. We would be plugging this cell in the openlane flow in the picorv32 core and we will see whether it happens or not.
+* Till now, we did till floorplan.
+* So one of the features of openlane mentioned earlier is that if we make changes on the fly, let's say we have set our core utilization as 50% and we want to make it 65% and then run the flow again.
+* If we want to change the configuration of how our input output pins are aligned around the core (earlier it is equidistant which we had set).
+* `IO placer` is one of the opensource eda tools which is used to place io around the core.
+* In the `floorplan.tcl` file, io mode has been set as 1 which means equidistant and we want to change it.
+* So go to the terminal section after doing floorplan and give the command as
+```
+% set ::env(FP_IO_MODE) 2
+```
+* Now, again execute the `run_floorplan` command. We will see that the "def" file has been updated which can be verified as it shows the time of updation.
+* Now let us check the floorplan using the "Magic" tool by giving the command as--
+```
+$ magic -T /home/kunalg123/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
+then we will observe that the pins are not equidistant anymore. So.if we want to make the change in the openlane flow, we have to reset the variable and then run the floorplan again for the values to make a change.
 
+###Spice deck creation for CMOS inverter
 
+* **VTC-SPICE simulation**: the first step is to create a SPIKE deck which is a piece of connectivity information about the netlist. It has inputs which are provided to the simulation and the deck points that will take the output.
+* **Component connectivity**: here, we need to define the connectivity of the substrate pins. Substrate pins tunes the threshold voltage of the PMOS and NMOS.
+* **Component values**: we have taken the same size of both the PMOS and NMOS.
+
+![Screenshot 2024-05-06 185750](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0103d945-abaa-4724-af3b-9a8e0f447ea3)
+
+* **Identifying the nodes**: these nodes are required to define the netlist.
+
+![Screenshot 2024-05-06 185928](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/f7bc6d96-f968-4f95-af79-0dd5681ea6ad)
+
+* **Naming the nodes**
+
+![Screenshot 2024-05-06 190956](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0f370c41-16ba-41ba-b8fe-9db322fa1a69)
+
+* The SPIKE deck is written in the format shown below:
+<pre>
+Drain-Gate-Substrate-Source
+</pre>
+
+![Screenshot 2024-05-06 193137](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/4d59531d-09fb-4db5-9729-89bf26c1c4ca)
+
+### Spice simulation lab for CMOS inverter
+
+Now, we will describe the connectivity information of the other components of the above circuit.
+
+![Screenshot 2024-05-06 194631](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/451574bd-3f37-4289-9f48-4b41fc74937a)
+
+Now, we will give the simulation commands in which we are swiping the Vin from 0 to 2.5 with the stepsize of 0.05 because we want to observe Vout while changing the Vin.
+
+![Screenshot 2024-05-06 194820](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/78455f0b-cf4e-4fff-8033-1d6ef8e361d1)
+
+The final step is to describe the model files which will have a complete description of NMOS and PMOS.
+
+![Screenshot 2024-05-06 195139](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ceabf7e8-e2f2-487e-8ab9-373cbe637ed8)
+
+![Screenshot 2024-05-06 195608](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c8a3f7ab-ad74-48f1-9916-c0f40f3e3058)
+
+Now, we will do the SPICE simulation for the given parameters using "ngspice" tool and observe the waveform--
+
+`Wn=Wp=0.375u, Ln=Lp=0.25u, Wn/Ln=Wp/Lp=1.5`
+![Screenshot 2024-05-06 195954](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/dba36b3d-a0b9-4c20-9565-c68891333e32)
+
+`Wn=0.375u, Wp=0.9375u Ln=Lp=0.25u, Wn/Ln=1.5, Wp/Lp=3.75`
+![Screenshot 2024-05-06 200751](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/04ce6270-a05e-4f73-a739-115a9e21d867)
+
+The difference between these two graphs is that in the second graph, the transfer characteristic lies exactly in the middle of the graph, whereas in the first graph, it lies in the left part.
+
+### Switching Threshold Vm
+
+* These two models of different widths have their own applications. By comparing both waveforms, we can see that the shape of both waveforms is the same irrespective of the voltage level. It tells that CMOS is a very robust device. when Vin is at low, output is at high and when Vin is at high, the output is at low. so the characteristic is maintained at all kinds of CMOS with different sizes of NMOS or PMOS. That is why CMOS logic is very widely used in the design of gates.
+* The switching threshold, Vm (the point at which the device switches the level) is one of the parameters that defines the robustness of the Inverter. Switching thresold is a point at which Vin=Vout.
+
+![Screenshot (92)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/31774edf-798a-4bc2-8f52-aebfc5cb66c2)
+
+Vm is a very critical point for CMOS because, at this point, there is a chance that both PMOS and NMOS get turned on. If both are turned on, then there may be a high chance of leakage current.
+* The below graph identifies the region of PMOS and NMOS.
+
+![Screenshot 2024-05-06 204032](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/67b2cf2b-d366-4427-af27-df5f4cf10ec7)
+
+### Static and Dynamic simulation of CMOS inverter
+
+In Dynamic simulation we will know about the rise and fall delay of CMOS inverter and how does it varies with Vm. In this simulation, everything else will remain same except the input that is provided will be a pulse and the simulation command will be `.tran`.
+
+![Screenshot 2024-05-06 204632](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/af174ed9-624b-451e-b82c-97e4d27074b9)
+
+The below graph defines the output voltage v/s time plot and from here, we can calculate the rise and fall delay.
+
+![Screenshot 2024-05-06 211105](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/158117e6-b2e1-4ffe-b3f5-312683ecc6b4)
+
+So, take 50% of the voltage waveform, `[rise delay=(1.6277 - 1.01446)=0.14831=148 ps]`. Similarly, we can calculate `fall delay(=71ps)` where the output falls (50% of voltage waveform).
+
+![Screenshot (95)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/d3dae0ca-8323-48ac-b186-30eaa2816400)
+
+Similarly, we will do these for all the values of (Wp/Lp = x.Wn/Ln) and make a table report.
+
+### Lab steps to git clone vsdtdcelldesign
 
 
 
