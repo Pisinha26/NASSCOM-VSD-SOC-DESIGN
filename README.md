@@ -399,6 +399,79 @@ One more thing to be taken care of is this pin placement area is blocked for rou
 </br>Now the floor plan is ready for the Placement and Routing step.
 
 
+### Steps to run floorplan using Openlane
+
+In the "configuration" folder present inside the "openlane" directory, there are "tcl" files and a "readme" file present. In the `readme.md` file,  we can see variables which are required for each stage i.e. synthesis, floorplan, placement, CTS, routing, etc. which can be set with the synthesis flow. In the `floorplan.tcl` file, there are basically the default parameters that are set for the floorplan stage in Openlane.
+
+![Screenshot 2024-05-05 182303](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/ef46d2a7-af7a-4dd1-81b7-30f9ebd8a8e4)
+
+README.md file
+![Screenshot 2024-05-05 182445](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2b0170e8-3c37-441c-a43f-a94ad5a23f76)
+
+floorplan.tcl file
+![Screenshot 2024-05-05 183216](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/6f64894b-aabd-4502-8868-04e567e06632)
+
+So, the first priority is for `floorplan.tcl` file, then for `config.tcl` file(present inside the picorv32a folder) and the next priority is `sky130A_sky130_fd_sc_hd_config.tcl`. 
+</br>Now, after the synthesis is successful using `run_synthesis` command, we will give the command as `run_floorplan` and get the following output as shown below--
+
+![Screenshot 2024-05-05 185504](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/1865833c-61be-4d25-82a9-34e214381ce7)
+
+
+### Review floorplan files and steps to view floorplan
+
+
+![Screenshot 2024-05-05 190403](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/77f001e1-4e26-463e-b745-d1176fe7cc3d)
+
+To see all the configurations that are taken by the flow, we need to open "config.tcl" file which is present in the "runs" folder.
+
+![Screenshot 2024-05-05 192507](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c4df1e6a-a39f-4bf0-ba1b-a196c3e4814b)
+
+![Screenshot 2024-05-05 192822](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2e2fb43d-6d2d-4e23-8c15-a45f0edfa1de)
+
+So, config.tcl has overridden the system defaults.
+* Now, we will see the `floorplan` folder in the `results` directory, where a def(design exchange format) file is present. Inside this file, we can see all the information about die area.
+
+![Screenshot 2024-05-05 194923](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2ad0daab-c4ae-47c2-a809-a2ca3a486ee1)
+
+But looking at the "def" file doesn't make any sense. So, to see the actual layout after the flow plan, we do it in "Magic" using the command--
+```
+magic -T /home/kunalg123/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
+"&" actually free up the prompt when magic launches.
+
+### Review floorplan layout in Magic
+
+* After the Magic gets launched, we will get something like as shown below--
+
+![Screenshot 2024-05-05 200318](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/23aa3ea1-ad9a-4c8c-98d9-074a952a7556)
+
+To select on the screen, press "s", the object will get highlighted.
+</br> To zoom in -- (click on object + press "z")
+</br> To zoom-out -- (shift + z)
+</br> We had set the i/o pins mode as 1 which means setting it equidistant.
+</br> If we want to check the location or to know at what layer it is available, we have to open the "tkcon" terminal present and type `what` which will show all the details of that particular pin.
+
+![Screenshot 2024-05-05 202617](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/788e0781-17b0-4ad1-b955-44fcccf6c53b)
+
+
+### Library building and Placement
+### Netlist binding and initial place design
+
+![Screenshot 2024-05-05 205301](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/453e4674-4c49-4d07-9da2-b73de9371519)
+
+**Binding netlist**
+Actually, we have all of these gates in the square box shape with physical dimensions i.e. height and width. and these all cells and gates are plced at a place called "library". Library can be divided into two sublibraries- one library has information about shape and size, while the other library has information about delays.
+</br>Library has different flavors for each and every cell. i.e. same cells can have bigger sizes on different shelves. So, the bigger the size of the cell, the lesser the resistance path, and will work faster and have a lesser delay.
+</br> The below diagram shows different flavors of the same cell, and we can pick whatever we want based on the timing conditions and space on the floorplan--
+![Screenshot 2024-05-05 210517](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/70cb6d41-6e7d-430a-8747-86589e32c7da)
+
+**Placement**
+Once we have given proper shape and size to each and every gate, the next step is to take those particular shapes and sizes and place it on the floorplan. We have the floorplan with input and output ports, we have particular netlist, and we have particular size given to each component of this netlist. So we have the physical view of the logic gates. The next step is to place the netlist onto the floorplan using the  connectivity information from the netlist and design the physical view.
+
+
+
+
+
 
 
 
