@@ -752,15 +752,64 @@ Then, we will get the layout of our inverter in the "Magic tool".
 ### Inception of layout A CMOS fabrication process
 ### Creating Active regions
 
+The first step for the 16-mask process is selecting a substrate(on which we fabricate our whole design). 
+</br>We will use the most used substrate which we see on any chips and that is a p-type substrate which has the following property --
+* High resistivity(5-50 ohms).
+* Doping level(10<sup>15</sup>cm<sup>-3</sup>)..the reason for this doping level is that we have to maintain a doping level which is less than the "well doping".
+* Orientation(100)
+
+* The next step is to create a active region for transistors by creating a small pockets in a p-type substrate which will be called as active region and in those pockets, we will create NMOS and PMOS transistor, and these pockets will be connected in the higher metal layers. Also, the pockets(active region) on the p-type substrate should not interfere  with each other working. This can be make sure by creating isolation between each and every pockets.
+* First step is to grow a SiO<sub>2</sub>(insulator) of 40nm on a p-type substrate.
+* The next step is to deposit a layer of silicon nitrite(Si<sub>3</sub>N<sub>4</sub>) of 80nm.
+* Before creating the pockets, we have to deposit a layer of photoresist(something like a negative film) of 1um. So when we talk about layout, those are nothing but called as `mask` in a fabrication term.
+
+![Screenshot 2024-05-07 155051](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/65fb1709-2856-4b02-9156-bb3e73ea54d6)
+
+* The below diagram is the cross section view of the "mask or layout". This is nothing but a protection layer for the photoresist. The UV light doesn't hit the area which is under the mask. But some of the side areas and the middle area get hit by the UV light and go through chemical reaction. So, we just wash off that area in the developing solution. So now we have the protected area where we can do some process.
+
+![Screenshot 2024-05-07 162429](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/fc11a308-9c2d-4238-82fb-3558e1583d45)
+
+The next step is to remove the mask and then the photoresist because the silicon matter will itself act as a very good protection layer to grow the oxides on the other area which will act as an isolation layer.
+
+![Screenshot 2024-05-07 162844](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/9bb24ff8-3c40-4de3-9720-19289c1a57df)
+
+![Screenshot 2024-05-07 163038](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/4bf08f72-cfbf-4345-a885-46bfce1797a7)
+
+![Screenshot 2024-05-07 163229](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/9f29abef-d55c-4a64-bbb4-995273dd1b2f)
+
+* Now put this complete thing in the oxidation furnace to grow the oxide in the other area.
+* After this, we can see below how the silicon nitrite metal has actually protected the area (90 to 95% area) underneath to grow while it was not able to protect the area which were at the edges because the growth was so strong and this area is called as isolation region. The whole process is called "locos ( local oxidation of silicon)". The grown SiO<sub>2</sub> in the middle will provide the perfect isolation between the PMOS and NMOS. This is how, we protect two transistors communicating with each other.
+
+![Screenshot 2024-05-07 165137](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/30fa730d-5d16-4533-a13f-59f8af4b01fb)
 
 
+Next step is to remove the Si<sub>3</sub>N<sub>4</sub> using hot phosphoric acid.
+
+![Screenshot 2024-05-07 165455](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/3cafe091-bcaf-4ff9-8c75-d02421154b0e)
 
 
+### Formation of N-well and P-well
 
+we can not form P-well(used for NMOS fabrication) and N-well(used for PMOS fabrication) at the same time. We have to protect the one region area by photoresist while forming in other region. First deposit a layer of photoresist and then define the pattern of which layer we have to protect. In this case, we will use the mask2 which will protect the area underneath. Now the next step is to expose the photoresist to UV light, the light doesn't react with the area underneath the mask2 , it only reacts with the area exposed. Now the particular area is washed away and that area is available for any chemical reaction that we want to do over there.
 
+![Screenshot (102)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/324f06ba-1311-427e-97d3-994f8f002ec3)
 
+Next step is to remove the mask itself and we have to create a P-well using boron which is diffused into this p-substrate through the thin oxide with a very high energy called as ion implantation.
 
+![Screenshot (103)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/36926958-b6d1-475f-b937-23797f39fa8b)
 
+We will do a similar process to form N-well by using mask3 and diffusing phosphorous ions with a very high energy.
+
+![Screenshot (104)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/d4d953a3-1acb-4db0-9805-3581b0b41099)
+
+So now, we have created the P-well and N-well.
+</br>Till now, the well depths are not defined. So, after creating the P-well and N-well, we will put it into high temperature furnace for drive-in diffusion and this is how we define the depth of the wells.
+
+![Screenshot (105)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/689c56c6-c0d6-4dc0-8cac-fc145f65b703)
+
+![Screenshot (107)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/315deefa-2ad6-4399-8e40-0f01e3c9393e)
+
+### Formation of Gate terminal
 
 
 
