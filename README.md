@@ -811,5 +811,64 @@ So now, we have created the P-well and N-well.
 
 ### Formation of Gate terminal
 
+Gate terminal is the most important terminal of the PMOS and NMOS because from the gate terminal only, we can control the thresold voltage (Vth). Doping concentration and oxide capacitance will control the thresold voltage as we can see from the Vth equation. So, first we will maintain the doping concentration and for that we use mask4 and  doing the ion implantation of boron ion at lower energy (~60kev) because we want the boron to penetrate just at the surface and this doping concentration will actually depend upon the value of Vth(threshold voltage).
+
+![Screenshot (108)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/a4e77ff5-63d0-4a9c-be7e-51f3510b1ade)
+
+Now, the similar step is repeated for the fabrication of PMOS on the N-well using mask5 and Arsenic ions at a low energy to dope just at this level which will help to control the threshold voltage of PMOS as well.
+
+![Screenshot (109)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/64d028f6-142f-42d5-b9b6-326564e04a5f)
+
+Next step is that we have to fix the oxide layer beacuse there already have been damage due to the implantation. So, first we will remove this oxide layer using Hydrofluoric acid solution and again re-grow the high quality oxide layer with same thickness (~10 nm). and this 10nm value can be controlled based on the Vth(threshold voltage) we need. Oxide capacitance is now controlled by the oxide thickness which is maintained over here.
+
+![Screenshot (111)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/cec48ea4-5a50-4481-94c5-1c9b31e86cd6)
+
+Now the final step where we have to look at the gate formation here is to deposit a thick  polysilicon layer of 0.4um , the gate area is supposed to be of less resistance, so we will dope it with more impurities of N-type.
+
+![Screenshot (112)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/b2b0e2cf-cdd6-46dd-810f-8aadad9d456c)
+
+![Screenshot (113)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0a4d78e9-6ed6-4897-92e8-10695f3a03c9)
+
+Next step is to deposit a photoresist over here and mask6 layer. Now remove the mask6 because of the UV light exposure and the remaining area from the polysilicon outside the photoresist can be edged away. In this way, we get a polysilicon gate and the final step is to remove the photoresist.
+
+![Screenshot (114)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/c552a253-1280-4b1e-87a7-e87f9bc5c0d6)
+
+![Screenshot (115)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/5a25c713-928b-4bb5-9fdc-98dddf27b78e)
+
+![Screenshot (116)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/3c27efe4-14f0-4ad2-9b5b-66917c922d8b)
+
+Now, in this complete procedure, we have actually controlled the gate voltage using the doping, oxide capacitances, and also made a low resistance gate by additional doping of polysilicon with N-type impurities like phosphorus and arsenic.
+
+
+### Lightly doped drain (LDD) formation
+
+Here, we actually want( P+,P-,N ) doping profile in the PMOS and (N+,N-,P) doping profile for NMOS. The reason  for which we want P- and N- is Hot electron effect and the Short channel effect.
+</br>For the formation of LDD, we again have to do ion implantation in P-well by using mask7 and phosphorous ions for light doping.
+
+![Screenshot (117)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/81399174-b13b-45b2-b989-840cfaf7c457)
+
+We have to do similar process for N-well using mask8 and then using boron ions.
+
+![Screenshot (118)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/f2c605a5-e5d6-4f97-8b46-c74b9221c881)
+
+To protect this lightly doped structure, we have to create spacers and for that, we have to deposit a thick layer of silicon dioxide or silicon nitrite(~0.1 um).
+
+![Screenshot (119)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/b7f64d30-714e-4449-b8ee-028e1a5dfeee)
+
+Now, we will do Plasma anisotropic etching to form the side wall spacers which will not let that area affected by the source and drain.
+
+![Screenshot (120)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/099ffdd6-454b-474f-8c10-5886cf3fc1dc)
+
+
+### Source and drain formation
+
+
+
+
+
+
+
+
+
 
 
