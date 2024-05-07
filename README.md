@@ -862,6 +862,132 @@ Now, we will do Plasma anisotropic etching to form the side wall spacers which w
 
 ### Source and drain formation
 
+To avoid the effect of channeling, we will add a small layer of screen oxide to not let the ions go deep inside the p-substrate.
+
+![Screenshot (121)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/5f1ddbf9-a246-4d14-ae6d-b05c75e4bd37)
+
+Now, to form the drain and source, we will do the ion implantation of arsenic at 75 kev again to create the N+ implant by using mask9 in the P-well.
+
+![Screenshot (123)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/375ccbe5-f87e-4257-8d3e-173b69dee97d)
+
+Same process we will repeat for NMOS by using the mask 10 and boron ion in the N-well at 50kev to create P+ implant.
+
+![Screenshot (124)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2076ff8d-b9b7-45d1-8523-dde8ea7ffb76)
+
+Now we put this Half made CMOS into the high temparature furnace (1000 degree), anneling. So P+ implant and N+ implant now become the source and drain.
+
+![Screenshot (125)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/f8194257-373a-470d-b32b-2c49cc867c53)
+
+
+### Local interconnect formation
+
+First step is remove the thin screen oxide layer by etching. Then deposite the titanium (Ti) using sputtering process. here, Ti is used because Ti has very low resistivity.
+
+![Screenshot (126)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/66a0dc9e-49e6-4b0d-8d16-85a483371bf4)
+
+Next step is to create the reaction between Ti layer and source, gate, drain of CMOS. For that wafer is heated at about 650-700 degree temparature in N2 ambient for about 60 seconds. and we can see the titanium siliside over the wafer after the reaction. One more reaction is heppend there between Ti and N. and it results the TiN which is used for local communication.
+
+![Screenshot (127)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/4e0fc384-0850-490b-87b3-181090b99591)
+
+Now by using mask 11 and photoresist, we will etched out the TIN and make particular contacts. TiN is etched out by using RCA cleaning.
+
+![Screenshot (128)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/0d358ee1-ddce-48d2-8270-cfd3de672bdf)
+
+Now, local interconnects are formed after etching and removing the photoresist.
+
+![Screenshot (129)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/16eecf24-011e-4d97-8fa9-3aaccd5af810)
+
+
+### Higher level metal formation
+
+First thing that we notice is that the surface is non planner. It is not good to use this type of non planner surface for metal interconnects because of the the metal disconinuty. so, we have to make the surface plane by depositing the thick layer of Sio2 with some phosphorous impurity to make a less resistive layer. and then we used CMP (chemical mechanical polishing) technique to plannerise the surface.
+
+![Screenshot (130)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7be9673f-9138-4adc-8225-191da3ca3f59)
+
+![Screenshot (131)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/7869bc1c-7f7a-4cba-9f6a-a1bec11b0b7e)
+
+Now, we will use the mask12 and photoresist for etching the SiO2 layer to drill the metal pins in it.
+
+![Screenshot (132)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2ef349c6-95a6-448f-8aeb-fa285bfe78a8)
+
+Now the photoresist is removed and the thin later of TIN (~10nm) is deposited over the wafer. Because TiN act as a very good adhesive  layer for SiO2 and also act as a barrier between bottom layer and top layer of metal interconnects.
+
+![Screenshot (133)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/bade4da3-738c-43ec-93bc-7e061de8d79a)
+
+Next step is to deposit the blanket tungsten (W) layer over the wafer. and then do the CMP here to plannerize the surface.
+
+![Screenshot (134)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/6200ebaa-daaa-40c0-ba21-28a7384bb4a0)
+
+This W layer act as a contact holes and this holes needs to connect to the higher metal layer. so we will deposite the Al (aluminium) layer.
+
+![Screenshot (135)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/89308b72-87c5-4e38-97d7-786823678dc6)
+
+Then by using the mask13 and photoresist, we etched the W layer out to form the contact at particular place by Plasma etching.
+
+![Screenshot (136)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e471a346-1914-4c81-bd9b-1abf23fd004e)
+
+Now we again do the same process as above to deposit the second level of metal interconnects by using mask14 for etching out the SiO2 and using mask15 for etching out Al layer. The upper layer of Al is bit thicker as compared to lower layer of Al. Now, again deposite the layer of SiO2 or Si3N4 to protect the chip.
+</br> This is the final look of our CMOS after the fabrication.
+
+![Screenshot (137)](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/2fef4ef5-bec8-4943-b7b4-d0cc9be26516)
+
+
+### Lab introduction to sky130 basic layers layout and LEF using inverter
+
+![Screenshot 2024-05-07 193002](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/b023f59d-7ac4-4d31-849a-1a394521349b)
+
+In sky130, every color is showing the different layer. here the first layer is for local interconnect shown by blue_purple color, then second layer is metal 1 which is shown by light purple color, and the metal 2 is shown by pink color. N-well is shown by solid dash line. N-diffusion region is green and red is for polysilicon gate. similarly the brown color is for P-diffusion.
+
+![Screenshot 2024-05-07 193547](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/6fb83451-7cf3-4e14-aee7-7dc190a3e7e6)
+
+![Screenshot 2024-05-07 193814](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/4b8e9ca2-b19c-4159-8266-ef35fc25d322)
+
+![Screenshot 2024-05-07 195137](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/d2e77b7d-1900-4081-9a6a-a604cc1aeeb0)
+
+![Screenshot 2024-05-07 195250](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/1223e4d6-451c-43ef-b18f-2c0a042359a0)
+
+
+### Spice extraction of CMOS inverter in Magic tool
+
+Commands for spice extraction of the custom inverter layout in Magic tool(tkcon wimdow)
+
+```
+pwd                                #to check current directory in console window of Magic
+extract all                        #`extract all` command is used to extract the design into sky130_inv.ext file
+ext2spice cthresh 0 rthresh 0      #before this, we will use sky130_inv.ext file to create the spice file to be used with our ngspice tool.
+ext2spice                          #converting ext to spice
+```
+
+![Screenshot 2024-05-07 195729](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e0222ee1-c6a4-49e0-ae18-949ed889f32d)
+
+Now, we can see that the spice file has been craeted.
+
+![Screenshot 2024-05-07 200735](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/e3296e1d-ec10-41f3-829e-9ccc0c77a469)
+
+
+### Creating final SPICE deck using Sky130 tech
+Now, using the command $`vim sky130_inv.spice`, open the SPICE file.
+![Screenshot 2024-05-07 205817](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/9cf5ba32-ceae-401c-8ca9-f8546be9f052)
+
+Now, use the command to run this file--
+```
+$ ngspice sky130_inv.spice
+```
+We will now plot the graph using the command `plot y vs time a`.
+
+![Screenshot 2024-05-07 210312](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/b3844b03-b587-43ef-a968-d5361efa15c0)
+
+### Characterization of CMOS inverter
+
+Here, we will calculate the rise time delay, fall time delay and propagation delay for the CMOS inverter. output.
+
+![Screenshot 2024-05-07 213118](https://github.com/Pisinha26/NASSCOM-VSD-SOC-DESIGN/assets/140955475/aa981147-3c09-4fa7-9e39-32c3dd0ca375)
+
+rise time = 2.21075 - 2.18097 = 0.02978
+fall time = 2.17661 - 2.15 = 0.02661
+
+
+
 
 
 
